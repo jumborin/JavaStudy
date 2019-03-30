@@ -62,10 +62,11 @@ class UseCsvFileTest {
 
 			// 作成されたテキストファイルを読み込んで書き込んだ値が正しいことを確認
 			List<String[]> list = ucf.readCsvFile(testDataCsvFile);
-			assertEquals("test1",list.get(0)[0]);
-			assertEquals("test2", list.get(0)[1]);
-			assertEquals("test3", list.get(0)[2]);
-			assertEquals("test4", list.get(0)[3]);
+			String[] rowData = list.get(0);
+			assertEquals("test1", rowData[0]);
+			assertEquals("test2", rowData[1]);
+			assertEquals("test3", rowData[2]);
+			assertEquals("test4", rowData[3]);
 
 			// ファイルが存在することを確認
 			assertEquals(true, ucf.isExistFile(testDataCsvFile));

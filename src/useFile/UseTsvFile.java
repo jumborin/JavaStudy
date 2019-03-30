@@ -11,23 +11,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * CSVファイルを扱うクラス
+ * TSVファイルを扱うクラス
  *
  * @author jumborin
  *
  */
-public class UseCsvFile extends UseTextFile {
+public class UseTsvFile extends UseTextFile {
 
 	/**
-	 * CSVファイルを読み込みリストで返却する。
+	 * TSVファイルを読み込みリストで返却する。
 	 *
-	 * @param csvFileName CSVファイル名
-	 * @return ArrayList<String[]> CSVファイルの行毎のリスト
+	 * @param tsvFileName TSVファイル名
+	 * @return ArrayList<String[]> TSVファイルの行毎のリスト
 	 * @throws IOException
 	 */
-	public List<String[]> readCsvFile(final String csvFileName) throws IOException {
+	public List<String[]> readTsvFile(final String tsvFileName) throws IOException {
 
-		BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(csvFileName)));
+		BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(tsvFileName)));
 
 		String line;
 		List<String[]> list = new ArrayList<String[]>();
@@ -42,20 +42,20 @@ public class UseCsvFile extends UseTextFile {
 	}
 
 	/**
-	 * 引数のメッセージを引数のCSVファイルにカンマ区切りで追記する。
+	 * 引数のメッセージを引数のTSVファイルにタブ区切りで追記する。
 	 *
-	 * @param csvFileName CSVファイル名
+	 * @param tsvFileName TSVファイル名
 	 * @param writeMessageList 書き込むメッセージ(1行分)
 	 * @throws IOException
 	 */
-	public void writeCsvFile(final String csvFileName, final List<String> writeMessageList) throws IOException {
+	public void writeTsvFile(final String tsvFileName, final List<String> writeMessageList) throws IOException {
 
-		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(new File(csvFileName), true)));
+		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(new File(tsvFileName), true)));
 		String writeData = "";
 
 		for (String columnData : writeMessageList) {
 			if (writeData != "") {
-				writeData += "," + columnData;
+				writeData += "\t" + columnData;
 			} else {
 				writeData = columnData;
 			}
