@@ -33,7 +33,7 @@ public class UseTsvFile extends UseTextFile {
 		List<String[]> list = new ArrayList<String[]>();
 
 		while ((line = bufferedReader.readLine()) != null) {
-			list.add(line.split(","));
+			list.add(line.split("\t"));
 		}
 
 		bufferedReader.close();
