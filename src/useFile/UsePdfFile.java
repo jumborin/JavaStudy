@@ -20,7 +20,7 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 public class UsePdfFile extends UseFile {
 
 	/**
-	 * 空のPDFファイルを作成する。
+	 * テキストファイルのみのPDFファイルを作成する。
 	 * 利用条件：PDFBoxが必要。
 	 *
 	 * @param pdfFileName PDFファイル名
