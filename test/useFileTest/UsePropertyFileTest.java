@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import cons.TestConst;
 import useFile.UsePropertyFile;
 
 /**
@@ -44,7 +45,8 @@ class UsePropertyFileTest {
 	void testReadPropertyFile() {
 
 		// 読み込み対象のファイル
-		String testFile = "D:\\\\workspace\\\\JavaStudy\\\\resource\\\\java.properties";
+		String testFile = TestConst.INPUT_DATA_DIR
+				+ "D:\\workspace\\JavaStudy\\test\\inputData\\java.properties";
 
 		// テスト対象のクラスをインスタンス化
 		UsePropertyFile rpf = new UsePropertyFile();
@@ -54,9 +56,11 @@ class UsePropertyFileTest {
 			// テスト対象のメソッドを実行
 			Map<String, String> map = rpf.readPropertyFile(testFile);
 
+			// 実行結果が正しいかの確認
 			assertEquals("test1", map.get("id"));
 			assertEquals("test2", map.get("pass"));
-			// ファイルが存在することを確認
+
+			// プロパティファイルが存在することを確認
 			assertEquals(true, rpf.isExistFile(testFile));
 
 		} catch (IOException e) {

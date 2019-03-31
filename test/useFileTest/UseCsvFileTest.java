@@ -12,6 +12,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import cons.TestConst;
 import useFile.UseCsvFile;
 
 /**
@@ -52,7 +53,7 @@ class UseCsvFileTest {
 		testDataList.add("test4");
 
 		// 読み込み対象のファイル
-		String testDataCsvFile = "testWriteCsvFile.csv";
+		String testDataCsvFile = TestConst.INPUT_DATA_DIR + "testWriteCsvFile.csv";
 		UseCsvFile ucf = new UseCsvFile();
 
 		try {
@@ -73,6 +74,9 @@ class UseCsvFileTest {
 
 			// ファイルが削除できることを確認
 			assertEquals(true, ucf.deleteFile(testDataCsvFile));
+
+			// ファイルが存在しないことを確認
+			assertEquals(false, ucf.isExistFile(testDataCsvFile));
 
 		} catch (IOException e) {
 			fail("IOExceptionエラー");

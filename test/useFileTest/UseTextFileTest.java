@@ -12,6 +12,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import cons.TestConst;
 import useFile.UseTextFile;
 
 /**
@@ -43,9 +44,14 @@ class UseTextFileTest {
 	 */
 	@Test
 	public void testReadTextFile() {
+
+		// テスト時に読み込むファイル
+		String testTextFile = TestConst.INPUT_DATA_DIR + "java.properties";
+
+		// テスト対象のクラスをインスタンス化
 		UseTextFile utf = new UseTextFile();
 		try {
-			List<String> list = utf.readTextFile("D:\\workspace\\JavaStudy\\resource\\java.properties");
+			List<String> list = utf.readTextFile(testTextFile);
 			assertEquals("# プロパティファイル", list.get(0));
 			assertEquals("id=test1", list.get(1));
 			assertEquals("pass=test2", list.get(2));
@@ -63,8 +69,8 @@ class UseTextFileTest {
 		// テストデータ作成
 		String testData = "test";
 
-		// 読み込み対象のファイル
-		String testDataTextFile = "testWriteTextFile.txt";
+		// テスト時に書き込むファイル
+		String testDataTextFile = TestConst.OUTPUT_DATA_DIR + "testWriteTextFile.txt";
 		UseTextFile utf = new UseTextFile();
 
 		try {
@@ -82,6 +88,9 @@ class UseTextFileTest {
 			// ファイルが削除できることを確認
 			assertEquals(true, utf.deleteFile(testDataTextFile));
 
+			// ファイルが存在しないことを確認
+			assertEquals(false, utf.isExistFile(testDataTextFile));
+
 		} catch (IOException e) {
 			fail("IOExceptionエラー");
 		}
@@ -98,8 +107,8 @@ class UseTextFileTest {
 		testDataList.add("test1");
 		testDataList.add("test2");
 
-		// 読み込み対象のファイル
-		String testDataTextFile = "testWriteTextFileFromList.txt";
+		// テスト時に書き込むファイル
+		String testDataTextFile = TestConst.OUTPUT_DATA_DIR + "testWriteTextFileFromList.txt";
 
 		// テスト対象のクラスをインスタンス化
 		UseTextFile utf = new UseTextFile();
@@ -119,6 +128,9 @@ class UseTextFileTest {
 
 			// ファイルが削除できることを確認
 			assertEquals(true, utf.deleteFile(testDataTextFile));
+
+			// ファイルが存在しないことを確認
+			assertEquals(false, utf.isExistFile(testDataTextFile));
 
 		} catch (IOException e) {
 			fail("IOExceptionエラー");
