@@ -1,6 +1,3 @@
-/**
- *
- */
 package useFile;
 
 import java.io.FileInputStream;

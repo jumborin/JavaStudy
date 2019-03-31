@@ -1,6 +1,3 @@
-/**
- *
- */
 package useFile;
 
 import java.io.IOException;
@@ -14,8 +11,8 @@ import org.apache.pdfbox.pdmodel.font.PDType1Font;
 /**
  * PDFファイルを扱うクラス。
  * 利用条件：PDFBoxが必要。
- * @author jumborin
  *
+ * @author jumborin
  */
 public class UsePdfFile extends UseFile {
 
