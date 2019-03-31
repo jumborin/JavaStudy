@@ -2,6 +2,7 @@ package useFileTest;
 
 import static org.junit.Assert.*;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Map;
 
@@ -45,8 +46,7 @@ class UsePropertyFileTest {
 	void testReadPropertyFile() {
 
 		// 読み込み対象のファイル
-		String testFile = TestConst.INPUT_DATA_DIR
-				+ "D:\\workspace\\JavaStudy\\test\\inputData\\java.properties";
+		String testFile = TestConst.INPUT_DATA_DIR + "java.properties";
 
 		// テスト対象のクラスをインスタンス化
 		UsePropertyFile rpf = new UsePropertyFile();
@@ -65,6 +65,29 @@ class UsePropertyFileTest {
 
 		} catch (IOException e) {
 			fail("IOExceptionエラー");
+		}
+	}
+
+	/**
+	 * getProperty()メソッドのテストメソッド
+	 */
+	@Test
+	void testGetProperty() {
+
+		// 読み込み対象のファイル
+		String testFile = TestConst.INPUT_DATA_DIR + "java.properties";
+
+		// テスト対象のクラスをインスタンス化
+		UsePropertyFile rpf = new UsePropertyFile();
+
+		try {
+			// 実行結果が正しいかの確認
+			assertEquals("test1", rpf.getProperty(testFile, "id"));
+			assertEquals("test2", rpf.getProperty(testFile, "pass"));
+		} catch (FileNotFoundException e) {
+			fail("FileNotFoundExceptionでエラー");
+		} catch (IOException e) {
+			fail("IOExceptionでエラー");
 		}
 	}
 }
