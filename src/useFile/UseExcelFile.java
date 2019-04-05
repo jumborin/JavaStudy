@@ -2,6 +2,7 @@ package useFile;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -73,12 +74,13 @@ public class UseExcelFile extends UseFile {
 			}
 
 			/**
-			 * 指定のエクセルからセルの値を取得し返却する。
+			 * 引数の値を指定のエクセルのセルの値に設定する。
 			 */
 			public void setCellValue(final String excelFileName, final String excelSheetName,
 					final int rowNum, final int columnNum, final String value) throws IOException {
 				Workbook book = new XSSFWorkbook(excelFileName);
 				book.getSheet(excelSheetName).getRow(rowNum).getCell(columnNum).setCellValue(value);
+				book.write(new FileOutputStream(excelFileName));
 				book.close();
 			}
 		},
@@ -101,6 +103,7 @@ public class UseExcelFile extends UseFile {
 					final int rowNum, final int columnNum, final String value) throws IOException {
 				Workbook book = new HSSFWorkbook(new POIFSFileSystem(new FileInputStream(excelFileName)));
 				book.getSheet(excelSheetName).getRow(rowNum).getCell(columnNum).setCellValue(value);
+				book.write(new FileOutputStream(excelFileName));
 				book.close();
 			}
 		};

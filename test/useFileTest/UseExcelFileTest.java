@@ -88,7 +88,7 @@ class UseExcelFileTest {
 			assertEquals("A1CellValue", uef.getCellValue(xlsFileName, xlsSheetName, 0, 0));
 			uef.setCellValue(xlsFileName, xlsSheetName, 0, 0, "書き換え");
 			assertEquals("書き換え", uef.getCellValue(xlsFileName, xlsSheetName, 0, 0));
-			uef.setCellValue(xlsFileName, xlsSheetName, 0, 0, xlsSheetName);
+			uef.setCellValue(xlsFileName, xlsSheetName, 0, 0, "A1CellValue");
 			assertEquals("A1CellValue", uef.getCellValue(xlsFileName, xlsSheetName, 0, 0));
 
 			// xlsxファイルを確認
@@ -96,7 +96,7 @@ class UseExcelFileTest {
 			assertEquals("A1CellValue", uef.getCellValue(xlsxFileName, xlsxSheetName, 0, 0));
 			uef.setCellValue(xlsFileName, xlsSheetName, 0, 0, "書き換え");
 			assertEquals("書き換え", uef.getCellValue(xlsFileName, xlsSheetName, 0, 0));
-			uef.setCellValue(xlsFileName, xlsSheetName, 0, 0, xlsSheetName);
+			uef.setCellValue(xlsFileName, xlsSheetName, 0, 0, "A1CellValue");
 			assertEquals("A1CellValue", uef.getCellValue(xlsFileName, xlsSheetName, 0, 0));
 
 		} catch (FileNotFoundException e) {
