@@ -28,12 +28,30 @@ public class UseExcelFile extends UseFile {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public String getCellValueFromExcelFile(final String excelFileName, final String excelSheetName,
+	public String getCellValue(final String excelFileName, final String excelSheetName,
 			final int rowNum, final int columnNum)
 			throws FileNotFoundException, IOException {
 		ExcelFileType excelFileType = ExcelFileType.getEnum(excelFileName);
-		String cellValue = excelFileType.getCellValueFromExcelFile(excelFileName, excelSheetName, rowNum, columnNum);
+		String cellValue = excelFileType.getCellValue(excelFileName, excelSheetName, rowNum, columnNum);
 		return cellValue;
+	}
+
+	/**
+	 * 引数の値を指定のセルに設定する。
+	 * 利用条件：Apache POIが必要。
+	 *
+	 * @param excelFileName Excelファイル名
+	 * @param excelSheetName Excelシート名
+	 * @param rowNum 行番号
+	 * @param columnNum 列番号
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	public void setCellValue(final String excelFileName, final String excelSheetName,
+			final int rowNum, final int columnNum, final String value)
+			throws FileNotFoundException, IOException {
+		ExcelFileType excelFileType = ExcelFileType.getEnum(excelFileName);
+		excelFileType.setCellValue(excelFileName, excelSheetName, rowNum, columnNum, value);
 	}
 
 	/**
@@ -46,24 +64,44 @@ public class UseExcelFile extends UseFile {
 			/**
 			 * 指定のエクセルからセルの値を取得し返却する。
 			 */
-			public String getCellValueFromExcelFile(final String excelFileName, final String excelSheetName,
+			public String getCellValue(final String excelFileName, final String excelSheetName,
 					final int rowNum, final int columnNum) throws IOException {
 				Workbook book = new XSSFWorkbook(excelFileName);
 				String cellValue = book.getSheet(excelSheetName).getRow(rowNum).getCell(columnNum).getStringCellValue();
 				book.close();
 				return cellValue;
 			}
+
+			/**
+			 * 指定のエクセルからセルの値を取得し返却する。
+			 */
+			public void setCellValue(final String excelFileName, final String excelSheetName,
+					final int rowNum, final int columnNum, final String value) throws IOException {
+				Workbook book = new XSSFWorkbook(excelFileName);
+				book.getSheet(excelSheetName).getRow(rowNum).getCell(columnNum).setCellValue(value);
+				book.close();
+			}
 		},
 		XLS {
 			/**
 			 * 指定のエクセルからセルの値を取得し返却する。
 			 */
-			public String getCellValueFromExcelFile(final String excelFileName, final String excelSheetName,
+			public String getCellValue(final String excelFileName, final String excelSheetName,
 					final int rowNum, final int columnNum) throws IOException {
 				Workbook book = new HSSFWorkbook(new POIFSFileSystem(new FileInputStream(excelFileName)));
 				String cellValue = book.getSheet(excelSheetName).getRow(rowNum).getCell(columnNum).getStringCellValue();
 				book.close();
 				return cellValue;
+			}
+
+			/**
+			 * 引数の値を指定のエクセルのセルの値に設定する。
+			 */
+			public void setCellValue(final String excelFileName, final String excelSheetName,
+					final int rowNum, final int columnNum, final String value) throws IOException {
+				Workbook book = new HSSFWorkbook(new POIFSFileSystem(new FileInputStream(excelFileName)));
+				book.getSheet(excelSheetName).getRow(rowNum).getCell(columnNum).setCellValue(value);
+				book.close();
 			}
 		};
 
@@ -77,9 +115,25 @@ public class UseExcelFile extends UseFile {
 		 * @return セルの値
 		 * @throws IOException
 		 */
-		public String getCellValueFromExcelFile(String excelFileName, String excelSheetName, int rowNum,
-				int columnNum) throws IOException {
-			return this.getCellValueFromExcelFile(excelFileName, excelSheetName, rowNum, columnNum);
+		public String getCellValue(final String excelFileName, final String excelSheetName, final int rowNum,
+				final int columnNum) throws IOException {
+			return this.getCellValue(excelFileName, excelSheetName, rowNum, columnNum);
+		}
+
+		/**
+		 * 引数の値を指定のエクセルのセルの値に設定する。
+		 *
+		 * @param excelFileName エクセルファイル名
+		 * @param excelSheetName エクセルシート名
+		 * @param rowNum 行No
+		 * @param columnNum 列No
+		 * @param value セルに設定する値
+		 * @return
+		 * @throws IOException
+		 */
+		public void setCellValue(final String excelFileName, final String excelSheetName, final int rowNum,
+				final int columnNum, final String value) throws IOException {
+			this.setCellValue(excelFileName, excelSheetName, rowNum, columnNum, value);
 		}
 
 		/**
