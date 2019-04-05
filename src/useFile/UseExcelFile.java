@@ -31,16 +31,69 @@ public class UseExcelFile extends UseFile {
 	public String getCellValueFromExcelFile(final String excelFileName, final String excelSheetName,
 			final int rowNum, final int columnNum)
 			throws FileNotFoundException, IOException {
-		String cellValue = "";
-		if (excelFileName.contains(".xlsx")) {
-			Workbook book = new XSSFWorkbook(excelFileName);
-			cellValue = book.getSheet(excelSheetName).getRow(rowNum).getCell(columnNum).getStringCellValue();
-			book.close();
-		} else {
-			Workbook book = new HSSFWorkbook(new POIFSFileSystem(new FileInputStream(excelFileName)));
-			cellValue = book.getSheet(excelSheetName).getRow(rowNum).getCell(columnNum).getStringCellValue();
-			book.close();
-		}
+		ExcelFileType excelFileType = ExcelFileType.getEnum(excelFileName);
+		String cellValue = excelFileType.getCellValueFromExcelFile(excelFileName, excelSheetName, rowNum, columnNum);
 		return cellValue;
+	}
+
+	/**
+	 * エクセルファイルの拡張子毎に処理を行うためのEnum
+	 *
+	 * @author jumborin
+	 */
+	private enum ExcelFileType {
+		XLSX {
+			/**
+			 * 指定のエクセルからセルの値を取得し返却する。
+			 */
+			public String getCellValueFromExcelFile(final String excelFileName, final String excelSheetName,
+					final int rowNum, final int columnNum) throws IOException {
+				Workbook book = new XSSFWorkbook(excelFileName);
+				String cellValue = book.getSheet(excelSheetName).getRow(rowNum).getCell(columnNum).getStringCellValue();
+				book.close();
+				return cellValue;
+			}
+		},
+		XLS {
+			/**
+			 * 指定のエクセルからセルの値を取得し返却する。
+			 */
+			public String getCellValueFromExcelFile(final String excelFileName, final String excelSheetName,
+					final int rowNum, final int columnNum) throws IOException {
+				Workbook book = new HSSFWorkbook(new POIFSFileSystem(new FileInputStream(excelFileName)));
+				String cellValue = book.getSheet(excelSheetName).getRow(rowNum).getCell(columnNum).getStringCellValue();
+				book.close();
+				return cellValue;
+			}
+		};
+
+		/**
+		 * 指定のエクセルからセルの値を取得し返却する。
+		 *
+		 * @param excelFileName エクセルファイル名
+		 * @param excelSheetName エクセルシート名
+		 * @param rowNum 行No
+		 * @param columnNum 列No
+		 * @return セルの値
+		 * @throws IOException
+		 */
+		public String getCellValueFromExcelFile(String excelFileName, String excelSheetName, int rowNum,
+				int columnNum) throws IOException {
+			return this.getCellValueFromExcelFile(excelFileName, excelSheetName, rowNum, columnNum);
+		}
+
+		/**
+		 * エクセルファイル名からEnumを判断して返却する。
+		 *
+		 * @param excelFileName エクセルファイル名
+		 * @return UseExcelEnum
+		 */
+		public static ExcelFileType getEnum(final String excelFileName) {
+			if (excelFileName.contains(".xlsx")) {
+				return ExcelFileType.XLSX;
+			} else {
+				return ExcelFileType.XLS;
+			}
+		}
 	}
 }
