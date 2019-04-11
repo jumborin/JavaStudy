@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * CSVファイルを扱うクラス
@@ -32,7 +33,7 @@ public class UseCsvFile extends UseTextFile {
 		String line;
 		List<String[]> list = new ArrayList<String[]>();
 
-		while ((line = bufferedReader.readLine()) != null) {
+		while (Objects.nonNull(line = bufferedReader.readLine())) {
 			list.add(line.split(","));
 		}
 
