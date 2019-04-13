@@ -60,4 +60,15 @@ class UsePdfFileTest {
 			fail("IOExceptionでエラー");
 		}
 	}
+
+	@Test
+	void testGetImageFromPdfFile() {
+		// テスト対象のクラスをインスタンス化
+		UsePdfFile upf = new UsePdfFile();
+		try {
+			upf.getImageFromPdfFile(TestConst.INPUT_DATA_DIR + "test.pdf", TestConst.OUTPUT_DATA_DIR);
+		} catch (IOException e) {
+			fail("IOExceptionのエラー");
+		}
+	}
 }
