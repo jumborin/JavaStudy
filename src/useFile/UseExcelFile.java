@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -17,6 +18,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * @author jumborin
  */
 public class UseExcelFile extends UseFile {
+
 	/**
 	 * 指定のExcelファイル、シート、セルから値を取得する。
 	 * 利用条件：Apache POIが必要。
@@ -47,10 +49,11 @@ public class UseExcelFile extends UseFile {
 	 * @param columnNum 列番号
 	 * @throws FileNotFoundException
 	 * @throws IOException
+	 * @throws InvalidFormatException
 	 */
 	public void setCellValue(final String excelFileName, final String excelSheetName,
 			final int rowNum, final int columnNum, final String value)
-			throws FileNotFoundException, IOException {
+			throws FileNotFoundException, IOException, InvalidFormatException {
 		ExcelFileType excelFileType = ExcelFileType.getEnum(excelFileName);
 		excelFileType.setCellValue(excelFileName, excelSheetName, rowNum, columnNum, value);
 	}
@@ -60,14 +63,14 @@ public class UseExcelFile extends UseFile {
 	 *
 	 * @author jumborin
 	 */
-	private enum ExcelFileType {
+	public enum ExcelFileType {
 		XLSX {
 			/**
 			 * 指定のエクセルからセルの値を取得し返却する。
 			 */
-			public String getCellValue(final String excelFileName, final String excelSheetName,
-					final int rowNum, final int columnNum) throws IOException {
-				Workbook book = new XSSFWorkbook(excelFileName);
+			public String getCellValue(final String excelFileName, final String excelSheetName, final int rowNum,
+					final int columnNum) throws IOException {
+				Workbook book = new XSSFWorkbook(new FileInputStream(excelFileName));
 				String cellValue = book.getSheet(excelSheetName).getRow(rowNum).getCell(columnNum).getStringCellValue();
 				book.close();
 				return cellValue;
@@ -75,10 +78,15 @@ public class UseExcelFile extends UseFile {
 
 			/**
 			 * 引数の値を指定のエクセルのセルの値に設定する。
+			 * @throws InvalidFormatException
 			 */
-			public void setCellValue(final String excelFileName, final String excelSheetName,
-					final int rowNum, final int columnNum, final String value) throws IOException {
-				Workbook book = new XSSFWorkbook(excelFileName);
+			public void setCellValue(
+					final String excelFileName,
+					final String excelSheetName,
+					final int rowNum,
+					final int columnNum,
+					final String value) throws IOException, InvalidFormatException, FileNotFoundException {
+				Workbook book = new XSSFWorkbook(new FileInputStream(excelFileName));
 				book.getSheet(excelSheetName).getRow(rowNum).getCell(columnNum).setCellValue(value);
 				book.write(new FileOutputStream(excelFileName));
 				book.close();
@@ -88,8 +96,8 @@ public class UseExcelFile extends UseFile {
 			/**
 			 * 指定のエクセルからセルの値を取得し返却する。
 			 */
-			public String getCellValue(final String excelFileName, final String excelSheetName,
-					final int rowNum, final int columnNum) throws IOException {
+			public String getCellValue(final String excelFileName, final String excelSheetName, final int rowNum,
+					final int columnNum) throws IOException {
 				Workbook book = new HSSFWorkbook(new POIFSFileSystem(new FileInputStream(excelFileName)));
 				String cellValue = book.getSheet(excelSheetName).getRow(rowNum).getCell(columnNum).getStringCellValue();
 				book.close();
@@ -99,11 +107,17 @@ public class UseExcelFile extends UseFile {
 			/**
 			 * 引数の値を指定のエクセルのセルの値に設定する。
 			 */
-			public void setCellValue(final String excelFileName, final String excelSheetName,
-					final int rowNum, final int columnNum, final String value) throws IOException {
+			public void setCellValue(
+					final String excelFileName,
+					final String excelSheetName,
+					final int rowNum,
+					final int columnNum,
+					final String value) throws IOException {
 				Workbook book = new HSSFWorkbook(new POIFSFileSystem(new FileInputStream(excelFileName)));
 				book.getSheet(excelSheetName).getRow(rowNum).getCell(columnNum).setCellValue(value);
-				book.write(new FileOutputStream(excelFileName));
+				FileOutputStream out = new FileOutputStream(excelFileName);
+				book.write(out);
+				out.close();
 				book.close();
 			}
 		};
@@ -133,9 +147,10 @@ public class UseExcelFile extends UseFile {
 		 * @param value セルに設定する値
 		 * @return
 		 * @throws IOException
+		 * @throws InvalidFormatException
 		 */
 		public void setCellValue(final String excelFileName, final String excelSheetName, final int rowNum,
-				final int columnNum, final String value) throws IOException {
+				final int columnNum, final String value) throws IOException, InvalidFormatException {
 			this.setCellValue(excelFileName, excelSheetName, rowNum, columnNum, value);
 		}
 
