@@ -19,3 +19,7 @@ https://poi.apache.org/download.html
 * poi-ooxml-schemas-4.0.1.jar
 * xmlbeans-3.0.2.jar
 
+## H2DATABASE 1.4.199
+https://www.h2database.com/html/main.html
+
+* C:\Program Files (x86)\H2\bin\h2-1.4.199.jar
