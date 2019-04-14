@@ -21,14 +21,14 @@ import java.util.Set;
  */
 public class H2DatabaseDao {
 
-	/** H2DatabaseのJDBCドライバー */
-	private static final String JDBC_DRIVER = "org.h2.Driver";
+	/** H2DatabaseのJDBCドライバークラス */
+	private static final String DRIVER_CLASS = "org.h2.Driver";
 
-	/** H2DatabaseのDB接続 */
-	private static final String DB_CONNECT = "jdbc:h2:~/test";
+	/** H2DatabaseのDB接続URL */
+	private static final String CONNECTION_URL = "jdbc:h2:~/test";
 
 	/** H2Databaseのユーザ */
-	private static final String USER = "sa";
+	private static final String USER_NAME = "sa";
 
 	/** H2Databaseのパスワード */
 	private static final String PASSWORD = "";
@@ -41,8 +41,8 @@ public class H2DatabaseDao {
 	 * @throws SQLException
 	 */
 	private static Connection getConnection() throws ClassNotFoundException, SQLException {
-		Class.forName(JDBC_DRIVER);
-		return DriverManager.getConnection(DB_CONNECT, USER, PASSWORD);
+		Class.forName(DRIVER_CLASS);
+		return DriverManager.getConnection(CONNECTION_URL, USER_NAME, PASSWORD);
 	}
 
 	/**
