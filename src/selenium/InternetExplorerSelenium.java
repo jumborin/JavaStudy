@@ -12,10 +12,10 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
  */
 public class InternetExplorerSelenium {
 
-	/** GoogleChromeドライバーのクラス名 */
+	/** InternetExplorerドライバーのクラス名 */
 	private final String IE_DRIVER_CLASS = "webdriver.ie.driver";
 
-	/** GoogleChromeドライバーのファイルパス */
+	/** InternetExplorerドライバーのファイルパス */
 	private final String IE_DRIVER_PATH = "driver/IEDriverServer.exe";
 
 	/**
