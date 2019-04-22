@@ -32,3 +32,14 @@ https://search.maven.org/search?q=dbunit
 https://www.slf4j.org/download.html
 * slf4j-api-1.7.26.jar
 * slf4j-nop-1.7.26.jar
+
+## SeleniumDriverのダウンロード元サイト(Selenium利用時に必須)
+*   https://www.seleniumhq.org/download/
+
+  * Selenium Standalone Server(Selenium利用時に必須)
+  * Selenium Client & WebDriver Language Bindings(Selenium利用時に必須)
+  * The Internet Explorer Driver Server(InternetExplorer利用時に必須)
+
+## ChromeDriverのダウンロード元サイト(GoogleChromeでテストする際には必要)
+*   https://chromedriver.storage.googleapis.com/index.html
+  * .
