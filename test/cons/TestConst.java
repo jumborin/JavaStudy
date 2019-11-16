@@ -1,5 +1,5 @@
 /**
- *
+ * 定数クラスを集めたパッケージ
  */
 package cons;
 
@@ -10,10 +10,13 @@ package cons;
  */
 public class TestConst {
 
+	/** workspaceフォルダまでの絶対パス*/
+	public final static String WORK_SPACE_DIR="D:\\workspace";
+
 	/** テスト用インプットデータの格納フォルダ*/
-	public final static String INPUT_DATA_DIR = "D:\\workspace\\JavaStudy\\test\\inputData\\";
+	public final static String INPUT_DATA_DIR = WORK_SPACE_DIR+"\\JavaStudy\\test\\inputData\\";
 
 	/** テスト用アウトプットデータの格納フォルダ*/
-	public final static String OUTPUT_DATA_DIR = "D:\\workspace\\JavaStudy\\test\\outputData\\";
+	public final static String OUTPUT_DATA_DIR = WORK_SPACE_DIR+"\\JavaStudy\\test\\outputData\\";
 
 }
