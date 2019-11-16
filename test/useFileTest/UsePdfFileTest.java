@@ -1,6 +1,7 @@
 package useFileTest;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
+import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 
