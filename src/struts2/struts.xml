@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <!-- 国際化ファイル -->
+    <constant name="struts.custom.i18n.resources" value="message" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="false" />
+
+    <package name="sample" namespace="/" extends="struts-default">
+
+        <!-- すべてのactionのerrorに対応する -->
+        <global-results>
+            <result name="error">error.jsp</result>
+        </global-results>
+
+        <!-- すべてのaction対応 -->
+        <action name="*">
+            <!-- action名.jspを返す -->
+            <result>/WEB-INF/jsp/{1}.jsp</result>
+        </action>
+
+        <action name="login" class="action.AuthAction" method="login">
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+            <result name="success">/WEB-INF/jsp/welcome.jsp</result>
+        </action>
+
+        <action name="register" class="action.AuthAction" method="register">
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+            <result name="success">/WEB-INF/jsp/welcome.jsp</result>
+        </action>
+    </package>
+</struts>
