@@ -1,5 +1,6 @@
 package useFileTest;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import java.io.FileNotFoundException;
@@ -57,7 +58,7 @@ class UsePropertyFileTest {
 			Map<String, String> map = rpf.readPropertyFile(testFile);
 
 			// 実行結果が正しいかの確認
-			assertEquals("test1", map.get("id"));
+	    assertEquals("test1", map.get("id"));
 			assertEquals("test2", map.get("pass"));
 
 			// プロパティファイルが存在することを確認
