@@ -3,21 +3,22 @@ Javaの勉強用リポジトリ
 * 勉強用のリポジトリのため、Gitのコミットログはかなり汚いです
 
 # 使用しているOSS
-## Apache PDFBox 2.0.18：PDF操作
+## Apache PDFBox 2.0.18:PDF操作
 https://pdfbox.apache.org/download.cgi
 
 * pdfbox-app-2.0.18.jar
 
 
-## Apache POI 4.0.1:Excel操作
+## Apache POI 4.1.1:Excel操作
 https://poi.apache.org/download.html
 
-* commons-collections4-4.2jar
-* commons-compress-1.18.jar
-* poi-4.0.1.jar
-* poi-ooxml-4.0.1.jar
-* poi-ooxml-schemas-4.0.1.jar
-* xmlbeans-3.0.2.jar
+* commons-collections4-4.4.jar
+* commons-compress-1.19.jar
+* commons-math3-3.6.1.jar
+* poi-4.1.1.jar
+* poi-ooxml-4.1.1.jar
+* poi-ooxml-schemas-4.1.1.jar
+* xmlbeans-3.1.0.jar
 
 ## H2DATABASE 1.4.199
 https://www.h2database.com/html/main.html
