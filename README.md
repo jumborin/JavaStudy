@@ -3,10 +3,10 @@ Javaの勉強用リポジトリ
 * 勉強用のリポジトリのため、Gitのコミットログはかなり汚いです
 
 # 使用しているOSS
-## Apache PDFBox 2.0.14：PDF操作
+## Apache PDFBox 2.0.18：PDF操作
 https://pdfbox.apache.org/download.cgi
 
-* pdfbox-app-2.0.14.jar
+* pdfbox-app-2.0.18.jar
 
 
 ## Apache POI 4.0.1:Excel操作

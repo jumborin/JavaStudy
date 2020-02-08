@@ -1,4 +1,4 @@
-package useFileTest;
+package pdffile;
 
 import static org.junit.Assert.fail;
 import static org.junit.Assert.assertEquals;

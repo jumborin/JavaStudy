@@ -22,82 +22,82 @@ import org.apache.pdfbox.pdmodel.graphics.PDXObject;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 
 /**
- * PDFファイルを扱うクラス。
- * 利用条件：PDFBoxが必要。
+ * PDFファイルを扱うクラス。 利用条件：PDFBoxが必要。
  *
  * @author jumborin
  */
 public class UsePdfFile extends UseFile {
 
-	/**
-	 * テキストファイルのみのPDFファイルを作成する。
-	 * 利用条件：PDFBoxが必要。
-	 *
-	 * @param pdfFileName PDFファイル名
-	 * @param outputText 出力するテキスト
-	 * @throws IOException
-	 */
-	public void createPdfFileOnlyText(final String pdfFileName, final String outputText) throws IOException {
-		// ドキュメントオブジェクトの作成
-		PDDocument document = new PDDocument();
+    /**
+     * テキストファイルのみのPDFファイルを作成する。 利用条件：PDFBoxが必要。
+     *
+     * @param pdfFileName PDFファイル名
+     * @param outputText  出力するテキスト
+     * @throws IOException
+     */
+    public void createPdfFileOnlyText(final String pdfFileName, final String outputText) throws IOException {
+	/** ドキュメントオブジェクトの作成 */
+	PDDocument document = new PDDocument();
 
-		// ページオブジェクトの作成
-		PDPage page = new PDPage();
-		document.addPage(page);
+	/** ページオブジェクトの作成 */
+	PDPage page = new PDPage();
+	document.addPage(page);
 
-		//文字出力処理
-		PDPageContentStream contentStream = new PDPageContentStream(document, page);
-		contentStream.beginText();
+	/** 文字出力処理 */
+	PDPageContentStream contentStream = new PDPageContentStream(document, page);
+	contentStream.beginText();
 
-		//フォント指定
-		PDFont font = PDType1Font.TIMES_ITALIC;
-		contentStream.setFont(font, 12);
+	/** フォント指定 */
+	PDFont font = PDType1Font.TIMES_ITALIC;
+	contentStream.setFont(font, 12);
 
-		//出力位置指定
-		contentStream.newLineAtOffset(0f, 0f);
+	/** 出力位置指定 */
+	contentStream.newLineAtOffset(0f, 0f);
 
-		//出力文字列
-		contentStream.showText(outputText);
-		contentStream.endText();
-		contentStream.close();
+	/** 出力文字列 */
+	contentStream.showText(outputText);
+	contentStream.endText();
+	contentStream.close();
 
-		// ドキュメントを保存します
-		document.save(pdfFileName);
-		document.close();
+	/** ドキュメントを保存します */
+	document.save(pdfFileName);
+	document.close();
+    }
+
+    /**
+     * 引数で渡したPDFファイル内の画像イメージを取得する。
+     *
+     * @param readFileName 読み込むPDFファイル名
+     * @param outputDir    画像ファイルを出力するフォルダ
+     * @throws IOException
+     */
+    public void getImageFromPdfFile(final String readFileName, final String outputDir) throws IOException {
+	PDDocument document = PDDocument.load(new File(readFileName));
+	PDPageTree pageTree = document.getDocumentCatalog().getPages();
+	COSName name = null;
+	PDXObject xobject = null;
+	PDImageXObject image = null;
+	PDPage page = pageTree.get(0);
+	PDResources resources = page.getResources();
+	Iterator<COSName> ite = resources.getXObjectNames().iterator();
+	while (ite.hasNext()) {
+	    name = ite.next();
+	    xobject = resources.getXObject(name);
+	    if (xobject instanceof PDImageXObject) {
+		image = (PDImageXObject) resources.getXObject(name);
+		ImageIO.write(image.getImage(), "jpg",
+			new FileOutputStream(outputDir + this.getNowForString() + ".jpg"));
+	    }
 	}
+    }
 
-	/**
-	 * PDFファイル内の画像イメージを取得する。
-	 *
-	 * @param readFileName 読み込むPDFファイル名
-	 * @param outputDir 画像ファイルを出力するフォルダ
-	 * @throws IOException
-	 */
-	public void getImageFromPdfFile(
-			final String readFileName,
-			final String outputDir)
-			throws IOException {
-		PDDocument document = PDDocument.load(new File(readFileName));
-		PDPageTree pageTree = document.getDocumentCatalog().getPages();
-		COSName name = null;
-		PDXObject xobject = null;
-		PDImageXObject image = null;
-		PDPage page = pageTree.get(0);
-		PDResources resources = page.getResources();
-		Iterator<COSName> ite = resources.getXObjectNames().iterator();
-		while (ite.hasNext()) {
-			name = ite.next();
-			xobject = resources.getXObject(name);
-			if (xobject instanceof PDImageXObject) {
-				image = (PDImageXObject) resources.getXObject(name);
-				ImageIO.write(image.getImage(), "jpg",
-						new FileOutputStream(outputDir + this.getNowForString() + ".jpg"));
-			}
-		}
-	}
-
-	private String getNowForString() {
-		DateFormat df = new SimpleDateFormat("yyyyMMddHHmmssSSS");
-		return df.format(new Date());
-	}
+    /**
+     * 現在日時(ミリ秒)を文字列(yyyyMMddHHmmssSSS)で取得する。
+     *
+     * @return 現在日時の文字列(yyyyMMddHHmmssSSS)
+     */
+    private String getNowForString() {
+	DateFormat df = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+	return df.format(new Date());
+    }
 }
