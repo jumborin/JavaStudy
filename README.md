@@ -35,12 +35,19 @@ https://www.slf4j.org/download.html
 * slf4j-nop-1.7.30.jar
 
 ## SeleniumDriverのダウンロード元サイト(Selenium利用時に必須)
-*   https://www.seleniumhq.org/download/
+https://selenium.dev/downloads/
+
+* client-combined-3.141.59.jar
+* byte-buddy-1.8.15.jar
+* commons-exec-1.3.jar
+* guava-25.0-jre.jar
+* okhttp-3.11.0.jar
+* okio-1.14.0.jar
 
   * Selenium Standalone Server(Selenium利用時に必須)
   * Selenium Client & WebDriver Language Bindings(Selenium利用時に必須)
   * The Internet Explorer Driver Server(InternetExplorer利用時に必須)
 
+
 ## ChromeDriverのダウンロード元サイト(GoogleChromeでテストする際には必要)
-*   https://chromedriver.storage.googleapis.com/index.html
-  * .
+*   https://chromedriver.chromium.org/downloads
