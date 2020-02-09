@@ -21,7 +21,7 @@ https://poi.apache.org/download.html
 * xmlbeans-3.1.0.jar
 
 ## H2DATABASE 1.4.199
-https://www.h2database.com/html/main.html
+https://www.h2database.com/html/download.html
 
 * C:\Program Files (x86)\H2\bin\h2-1.4.199.jar
 
@@ -31,8 +31,8 @@ https://search.maven.org/search?q=dbunit
 * dbunit-2.6.0.jar
 
 https://www.slf4j.org/download.html
-* slf4j-api-1.7.26.jar
-* slf4j-nop-1.7.26.jar
+* slf4j-api-1.7.30.jar
+* slf4j-nop-1.7.30.jar
 
 ## SeleniumDriverのダウンロード元サイト(Selenium利用時に必須)
 *   https://www.seleniumhq.org/download/
