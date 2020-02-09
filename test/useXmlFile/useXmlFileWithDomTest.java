@@ -2,18 +2,17 @@ package useXmlFile;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import cons.TestConst;
-import useFile.UseXmlFile;
+import useFile.UseXmlFileWithDom;
 
-class useXmlFileTest {
+class useXmlFileWithDomTest {
     @Test
     void testReadXmlFileWithDom() {
-	UseXmlFile uxf = new UseXmlFile();
+	UseXmlFileWithDom uxf = new UseXmlFileWithDom();
 	NodeList books;
 	try {
 	    books = uxf.readXmlFileWithDom(TestConst.WORK_SPACE_DIR + "\\JavaStudy\\test\\useXmlFile\\Book.xml", "Book");

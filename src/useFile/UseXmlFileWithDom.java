@@ -14,7 +14,7 @@ import org.w3c.dom.NodeList;
  *
  * @author jumborin
  */
-public class UseXmlFile {
+public class UseXmlFileWithDom {
     /**
      * XMLファイルのパスとタグ名を引数に、要素の一覧を取得する。
      *
