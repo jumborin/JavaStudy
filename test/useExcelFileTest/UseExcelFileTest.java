@@ -1,4 +1,4 @@
-package useFileTest;
+package useExcelFileTest;
 
 import static org.junit.Assert.*;
 
