@@ -10,7 +10,16 @@ import org.junit.jupiter.api.Test;
 import cons.TestConst;
 import useFile.UsePdfFile;
 
+/**
+ * RDFBoxを使ってPDFの操作を行うクラス
+ *
+ * @author jumborin
+ */
 class UsePdfFileTest {
+
+    /** テスト出力するPDFファイル名 */
+    private final String TEST_OUTPUT_PDF_FILE = TestConst.OUTPUT_DATA_DIR + "test.pdf";
+    private final String TEST_INPUT_PDF_FILE = TestConst.INPUT_DATA_DIR + "test.pdf";
 
     /**
      * createPdfFileOnlyText()メソッドのテストメソッド
@@ -18,24 +27,21 @@ class UsePdfFileTest {
     @Test
     void testCreatePdfFileOnlyText() {
 
-	// テスト出力するPDFファイル名
-	String testPdfFile = TestConst.OUTPUT_DATA_DIR + "test.pdf";
-
 	// テスト対象のクラスをインスタンス化
 	UsePdfFile upf = new UsePdfFile();
 
 	try {
 	    // テスト対象のメソッドを実行
-	    upf.createPdfFileOnlyText(testPdfFile, "test message");
+	    upf.createPdfFileOnlyText(TEST_OUTPUT_PDF_FILE, "test message");
 
 	    // PDFファイルが存在することを確認
-	    assertEquals(true, upf.isExistFile(testPdfFile));
+	    assertEquals(true, upf.isExistFile(TEST_OUTPUT_PDF_FILE));
 
 	    // PDFファイルを削除できたことを確認
-	    assertEquals(true, upf.deleteFile(testPdfFile));
+	    assertEquals(true, upf.deleteFile(TEST_OUTPUT_PDF_FILE));
 
 	    // PDFファイルが存在しないことを確認
-	    assertEquals(false, upf.isExistFile(testPdfFile));
+	    assertEquals(false, upf.isExistFile(TEST_OUTPUT_PDF_FILE));
 
 	} catch (IOException e) {
 	    fail("IOExceptionでエラー");
@@ -47,7 +53,7 @@ class UsePdfFileTest {
 	// テスト対象のクラスをインスタンス化
 	UsePdfFile upf = new UsePdfFile();
 	try {
-	    upf.getImageFromPdfFile(TestConst.INPUT_DATA_DIR + "test.pdf", TestConst.OUTPUT_DATA_DIR);
+	    upf.getImageFromPdfFile(TEST_INPUT_PDF_FILE, TestConst.OUTPUT_DATA_DIR);
 	} catch (IOException e) {
 	    fail("IOExceptionのエラー");
 	}
