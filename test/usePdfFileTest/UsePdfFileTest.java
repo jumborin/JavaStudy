@@ -1,4 +1,4 @@
-package useFileTest;
+package usePdfFileTest;
 
 import static org.junit.Assert.fail;
 import static org.junit.Assert.assertEquals;
@@ -18,8 +18,10 @@ import useFile.UsePdfFile;
 class UsePdfFileTest {
 
     /** テスト出力するPDFファイル名 */
-    private final String TEST_OUTPUT_PDF_FILE = TestConst.OUTPUT_DATA_DIR + "test.pdf";
-    private final String TEST_INPUT_PDF_FILE = TestConst.INPUT_DATA_DIR + "test.pdf";
+    private final String TEST_OUTPUT_PDF_FILE = TestConst.PROJECT_ROOT_DIR
+	    + "\\test\\usePdfFileTest\\UsePdfFileOutputFile.pdf";
+    private final String TEST_INPUT_PDF_FILE = TestConst.PROJECT_ROOT_DIR
+	    + "\\test\\usePdfFileTest\\UsePdfFileInputFile.pdf";
 
     /**
      * createPdfFileOnlyText()メソッドのテストメソッド
