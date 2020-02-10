@@ -1,4 +1,4 @@
-package useFileTest;
+package useCsvFileTest;
 
 import static org.junit.Assert.*;
 
@@ -33,17 +33,24 @@ class UseCsvFileTest {
 	testDataList.add("test4");
 
 	// 読み込み対象のファイル
-	String testDataCsvFile = TestConst.INPUT_DATA_DIR + "testWriteCsvFile.csv";
+	String testDataCsvFile = TestConst.PROJECT_ROOT_DIR + "\\test\\useCsvFileTest\\testWriteCsvFile.csv";
 	UseCsvFile ucf = new UseCsvFile();
 
 	try {
 
 	    // テスト対象のメソッドを実行
 	    ucf.writeCsvFile(testDataCsvFile, testDataList);
+	    ucf.writeCsvFile(testDataCsvFile, testDataList);
 
 	    // 作成されたテキストファイルを読み込んで書き込んだ値が正しいことを確認
 	    List<String[]> list = ucf.readCsvFile(testDataCsvFile);
 	    String[] rowData = list.get(0);
+	    assertEquals("test1", rowData[0]);
+	    assertEquals("test2", rowData[1]);
+	    assertEquals("test3", rowData[2]);
+	    assertEquals("test4", rowData[3]);
+
+	    rowData = list.get(1);
 	    assertEquals("test1", rowData[0]);
 	    assertEquals("test2", rowData[1]);
 	    assertEquals("test3", rowData[2]);
