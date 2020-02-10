@@ -1,16 +1,19 @@
 package dao;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 
 /**
@@ -21,17 +24,21 @@ import java.util.Set;
  */
 public class H2DatabaseDao {
 
-    /** H2DatabaseのJDBCドライバークラス */
-    private static final String DRIVER_CLASS = "org.h2.Driver";
+    /** H2DatabaseのJDBCドライバークラスキー */
+    private static final String DRIVER_CLASS = "DRIVER_CLASS";
 
-    /** H2DatabaseのDB接続URL */
-    private static final String CONNECTION_URL = "jdbc:h2:~/test";
+    /** H2DatabaseのDB接続URLキー */
+    private static final String CONNECTION_URL = "CONNECTION_URL";
 
-    /** H2Databaseのユーザ */
-    private static final String USER_NAME = "sa";
+    /** H2Databaseのユーザキー */
+    private static final String USER_NAME = "USER_NAME";
 
-    /** H2Databaseのパスワード */
-    private static final String PASSWORD = "";
+    /** H2Databaseのパスワードキー */
+    private static final String PASSWORD = "PASSWORD";
+
+    /** プロパティファイル名 */
+    private static final String PROPERTY_FILE_NAME = System.getProperty("user.dir")
+	    + "\\src\\dao\\H2DBConfig.properties";
 
     /**
      * H2Databaseにアクセスするためのコネクションを取得する。
@@ -41,8 +48,18 @@ public class H2DatabaseDao {
      * @throws SQLException
      */
     private static Connection getConnection() throws ClassNotFoundException, SQLException {
-	Class.forName(DRIVER_CLASS);
-	return DriverManager.getConnection(CONNECTION_URL, USER_NAME, PASSWORD);
+	Properties properties = new Properties();
+	try {
+	    properties.load(new FileInputStream(PROPERTY_FILE_NAME));
+	    Class.forName(properties.getProperty(DRIVER_CLASS));
+	    return DriverManager.getConnection(properties.getProperty(CONNECTION_URL),
+		    properties.getProperty(USER_NAME), properties.getProperty(PASSWORD));
+	} catch (FileNotFoundException e) {
+	    e.printStackTrace();
+	} catch (IOException e) {
+	    e.printStackTrace();
+	}
+	return null;
     }
 
     /**
@@ -53,33 +70,36 @@ public class H2DatabaseDao {
      * @throws ClassNotFoundException
      * @throws SQLException
      */
-    public static List<Map<String, String>> select(final String selectSQL) throws ClassNotFoundException, SQLException {
-	Connection conn = getConnection();
-	Statement st = conn.createStatement();
-	ResultSet rs = st.executeQuery(selectSQL);
-	List<Map<String, String>> resultList = new ArrayList<Map<String, String>>();
-	ResultSetMetaData rsmd = rs.getMetaData();
-
+    public static List<Map<String, String>> select(final String selectSQL) {
+	ResultSet rs;
+	ResultSetMetaData rsmd;
 	// 列名のリストを作成する。
 	Set<String> columeNameSet = new HashSet<String>();
-	for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-	    columeNameSet.add(rsmd.getColumnName(i));
-	}
-
-	// 1件ずつデータを取得し、Mapに詰める。
-	while (rs.next()) {
-	    Map<String, String> map = new HashMap<String, String>();
-	    for (String key : columeNameSet) {
-		map.put(key, rs.getString(key));
+	// 結果のリストを作成する。
+	List<Map<String, String>> resultList = new ArrayList<Map<String, String>>();
+	try {
+	    rs = getConnection().createStatement().executeQuery(selectSQL);
+	    rsmd = rs.getMetaData();
+	    for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+		columeNameSet.add(rsmd.getColumnName(i));
 	    }
-	    resultList.add(map);
+	    // 1件ずつデータを取得し、Mapに詰める。
+	    while (rs.next()) {
+		Map<String, String> map = new HashMap<String, String>();
+		columeNameSet.parallelStream().forEach((key) -> {
+		    try {
+			map.put(key, rs.getString(key));
+		    } catch (SQLException e) {
+			e.printStackTrace();
+		    }
+		});
+		resultList.add(map);
+	    }
+	    // 終了処理
+	    rs.close();
+	} catch (ClassNotFoundException | SQLException e) {
+	    e.printStackTrace();
 	}
-
-	// 終了処理
-	conn.close();
-	st.close();
-	rs.close();
-
 	// 結果を返却
 	return resultList;
     }

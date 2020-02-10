@@ -30,10 +30,6 @@ class H2DatabaseDaoTest {
 	    map = list.get(1);
 	    assertEquals("2", map.get("ID"));
 	    assertEquals("jirou", map.get("NAME"));
-	} catch (ClassNotFoundException e) {
-	    fail("ClassNotFoundExceptionでエラー");
-	} catch (SQLException e) {
-	    fail("SQLExceptionでエラー");
 	} catch (Exception e) {
 	    fail("Exceptionでエラー");
 	}
