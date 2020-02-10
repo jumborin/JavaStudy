@@ -20,8 +20,11 @@ import useFile.UseTsvFile;
  */
 class UseTsvFileTest {
 
+    /** テスト用のTSVファイル */
+    private final String TEST_DATA_TSV_FILE = TestConst.INPUT_DATA_DIR + "testWriteTsvFile.tsv";
+
     /**
-     * writeCsvFile()メソッドのテストメソッド
+     * writeTsvFile()メソッドのテストメソッド
      */
     @Test
     void testWriteTsvFile() {
@@ -33,33 +36,35 @@ class UseTsvFileTest {
 	testDataList.add("test3");
 	testDataList.add("test4");
 
-	// テスト時に書き込むファイル
-	String testDataCsvFile = TestConst.INPUT_DATA_DIR + "testWriteCsvFile.csv";
-
 	// テスト対象のクラスをインスタンス化
 	UseTsvFile utf = new UseTsvFile();
 
 	try {
-
 	    // テスト対象のメソッドを実行
-	    utf.writeTsvFile(testDataCsvFile, testDataList);
+	    utf.writeTsvFile(TEST_DATA_TSV_FILE, testDataList);
+	    utf.writeTsvFile(TEST_DATA_TSV_FILE, testDataList);
 
 	    // 作成されたテキストファイルを読み込んで書き込んだ値が正しいことを確認
-	    List<String[]> list = utf.readTsvFile(testDataCsvFile);
+	    List<String[]> list = utf.readTsvFile(TEST_DATA_TSV_FILE);
 	    String[] rowData = list.get(0);
+	    assertEquals("test1", rowData[0]);
+	    assertEquals("test2", rowData[1]);
+	    assertEquals("test3", rowData[2]);
+	    assertEquals("test4", rowData[3]);
+	    rowData = list.get(1);
 	    assertEquals("test1", rowData[0]);
 	    assertEquals("test2", rowData[1]);
 	    assertEquals("test3", rowData[2]);
 	    assertEquals("test4", rowData[3]);
 
 	    // ファイルが存在することを確認
-	    assertEquals(true, utf.isExistFile(testDataCsvFile));
+	    assertEquals(true, utf.isExistFile(TEST_DATA_TSV_FILE));
 
 	    // ファイルが削除できることを確認
-	    assertEquals(true, utf.deleteFile(testDataCsvFile));
+	    assertEquals(true, utf.deleteFile(TEST_DATA_TSV_FILE));
 
 	    // ファイルが存在しないことを確認
-	    assertEquals(false, utf.isExistFile(testDataCsvFile));
+	    assertEquals(false, utf.isExistFile(TEST_DATA_TSV_FILE));
 
 	} catch (IOException e) {
 	    fail("IOExceptionエラー");
