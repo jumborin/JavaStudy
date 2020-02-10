@@ -15,16 +15,6 @@ import useFile.UseXmlFileWithSax;
 class UseXmlFileWithSaxTest {
 
     @Test
-    void testStartElementStringStringStringAttributes() {
-	fail("まだ実装されていません");
-    }
-
-    @Test
-    void testEndElementStringStringString() {
-	fail("まだ実装されていません");
-    }
-
-    @Test
     void testReadXmlFileWithSax() throws Exception {
 	UseXmlFileWithSax uxfws = new UseXmlFileWithSax();
 	List<String> tagNameList = new ArrayList<String>();
@@ -32,8 +22,8 @@ class UseXmlFileWithSaxTest {
 	tagNameList.add("title");
 	tagNameList.add("text");
 
-	List<HashMap<String, String>> resultMapList = uxfws.readXmlFileWithSax(
-		TestConst.WORK_SPACE_DIR + "\\JavaStudy\\test\\useXmlFile\\Book.xml", "Book", tagNameList);
+	List<HashMap<String, String>> resultMapList = uxfws
+		.readXmlFileWithSax(TestConst.PROJECT_ROOT_DIR + "\\test\\useXmlFile\\Book.xml", "Book", tagNameList);
 
 	Map<String, String> map = resultMapList.get(0);
 	assertEquals("清少納言", map.get("author"));

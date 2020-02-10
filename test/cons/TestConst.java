@@ -10,13 +10,13 @@ package cons;
  */
 public class TestConst {
 
-	/** workspaceフォルダまでの絶対パス*/
-	public final static String WORK_SPACE_DIR="D:\\workspace";
+    /** プロジェクトのルートフォルダ */
+    public final static String PROJECT_ROOT_DIR = System.getProperty("user.dir");
 
-	/** テスト用インプットデータの格納フォルダ*/
-	public final static String INPUT_DATA_DIR = WORK_SPACE_DIR+"\\JavaStudy\\test\\inputData\\";
+    /** テスト用インプットデータの格納フォルダ */
+    public final static String INPUT_DATA_DIR = PROJECT_ROOT_DIR + "\\test\\inputData\\";
 
-	/** テスト用アウトプットデータの格納フォルダ*/
-	public final static String OUTPUT_DATA_DIR = WORK_SPACE_DIR+"\\JavaStudy\\test\\outputData\\";
+    /** テスト用アウトプットデータの格納フォルダ */
+    public final static String OUTPUT_DATA_DIR = PROJECT_ROOT_DIR + "\\test\\outputData\\";
 
 }

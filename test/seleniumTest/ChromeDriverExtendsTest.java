@@ -3,9 +3,6 @@
  */
 package seleniumTest;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,64 +14,43 @@ import selenium.ChromeDriverExtends;
  */
 class ChromeDriverExtendsTest {
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-	}
+    /**
+     * @throws java.lang.Exception
+     */
+    @BeforeEach
+    void setUp() throws Exception {
+	// 登録
+	System.setProperty(CHROME_DRIVER_CLASS, CHROME_DRIVER_PATH);
+    }
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterAll
-	static void tearDownAfterClass() throws Exception {
-	}
+    /** GoogleChromeのドライバークラス名 */
+    private final static String CHROME_DRIVER_CLASS = "webdriver.chrome.driver";
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@BeforeEach
-	void setUp() throws Exception {
-		//登録
-		System.setProperty(CHROME_DRIVER_CLASS, CHROME_DRIVER_PATH);
-	}
+    /** GoogleChromeのドライバーファイル */
+    private final static String CHROME_DRIVER_PATH = "driver/chromedriver.exe";
 
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@AfterEach
-	void tearDown() throws Exception {
-	}
+    /**
+     * {@link selenium.InternetExplorerDriverExtends#maxWindowSize()} のためのテスト・メソッド。
+     */
+    @Test
+    final void test() {
 
-	/** GoogleChromeのドライバークラス名 */
-	private final static String CHROME_DRIVER_CLASS = "webdriver.chrome.driver";
+	// インスタンス作成
+	ChromeDriverExtends driver = new ChromeDriverExtends();
 
-	/** GoogleChromeのドライバーファイル */
-	private final static String CHROME_DRIVER_PATH = "driver/chromedriver.exe";
+	// グーグルマップに遷移する
+	driver.get("https://www.google.co.jp/maps/");
 
-	/**
-	 * {@link selenium.InternetExplorerDriverExtends#maxWindowSize()} のためのテスト・メソッド。
-	 */
-	@Test
-	final void test() {
+	// タイトルを出力する。
+	System.out.println(driver.getTitle());
 
-		//インスタンス作成
-		ChromeDriverExtends driver = new ChromeDriverExtends();
+	// URLを出力する
+	System.out.println(driver.getCurrentUrl());
 
-		//グーグルマップに遷移する
-		driver.get("https://www.google.co.jp/maps/");
+	// 検索窓に入力する
+	driver.input("searchboxinput", "test");
 
-		// タイトルを出力する。
-		System.out.println(driver.getTitle());
-
-		//URLを出力する
-		System.out.println(driver.getCurrentUrl());
-
-		//検索窓に入力する
-		driver.input("searchboxinput", "test");
-
-		//検索ボタンをクリックする。
-		driver.click("searchbox-searchbutton");
-	}
+	// 検索ボタンをクリックする。
+	driver.click("searchbox-searchbutton");
+    }
 }

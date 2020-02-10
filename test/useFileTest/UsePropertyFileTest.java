@@ -7,10 +7,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Map;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import cons.TestConst;
@@ -24,71 +20,55 @@ import useFile.UsePropertyFile;
  */
 class UsePropertyFileTest {
 
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-	}
+    /**
+     * readPropertyFile()メソッドのテストメソッド
+     */
+    @Test
+    void testReadPropertyFile() {
 
-	@AfterAll
-	static void tearDownAfterClass() throws Exception {
-	}
+	// 読み込み対象のファイル
+	String testFile = TestConst.INPUT_DATA_DIR + "java.properties";
 
-	@BeforeEach
-	void setUp() throws Exception {
-	}
+	// テスト対象のクラスをインスタンス化
+	UsePropertyFile rpf = new UsePropertyFile();
 
-	@AfterEach
-	void tearDown() throws Exception {
-	}
+	try {
 
-	/**
-	 * readPropertyFile()メソッドのテストメソッド
-	 */
-	@Test
-	void testReadPropertyFile() {
+	    // テスト対象のメソッドを実行
+	    Map<String, String> map = rpf.readPropertyFile(testFile);
 
-		// 読み込み対象のファイル
-		String testFile = TestConst.INPUT_DATA_DIR + "java.properties";
-
-		// テスト対象のクラスをインスタンス化
-		UsePropertyFile rpf = new UsePropertyFile();
-
-		try {
-
-			// テスト対象のメソッドを実行
-			Map<String, String> map = rpf.readPropertyFile(testFile);
-
-			// 実行結果が正しいかの確認
+	    // 実行結果が正しいかの確認
 	    assertEquals("test1", map.get("id"));
-			assertEquals("test2", map.get("pass"));
+	    assertEquals("test2", map.get("pass"));
 
-			// プロパティファイルが存在することを確認
-			assertEquals(true, rpf.isExistFile(testFile));
+	    // プロパティファイルが存在することを確認
+	    assertEquals(true, rpf.isExistFile(testFile));
 
-		} catch (IOException e) {
-			fail("IOExceptionエラー");
-		}
+	} catch (IOException e) {
+	    fail("IOExceptionエラー");
 	}
+    }
 
-	/**
-	 * getProperty()メソッドのテストメソッド
-	 */
-	@Test
-	void testGetProperty() {
+    /**
+     * getProperty()メソッドのテストメソッド
+     */
+    @Test
+    void testGetProperty() {
 
-		// 読み込み対象のファイル
-		String testFile = TestConst.INPUT_DATA_DIR + "java.properties";
+	// 読み込み対象のファイル
+	String testFile = TestConst.INPUT_DATA_DIR + "java.properties";
 
-		// テスト対象のクラスをインスタンス化
-		UsePropertyFile rpf = new UsePropertyFile();
+	// テスト対象のクラスをインスタンス化
+	UsePropertyFile rpf = new UsePropertyFile();
 
-		try {
-			// 実行結果が正しいかの確認
-			assertEquals("test1", rpf.getProperty(testFile, "id"));
-			assertEquals("test2", rpf.getProperty(testFile, "pass"));
-		} catch (FileNotFoundException e) {
-			fail("FileNotFoundExceptionでエラー");
-		} catch (IOException e) {
-			fail("IOExceptionでエラー");
-		}
+	try {
+	    // 実行結果が正しいかの確認
+	    assertEquals("test1", rpf.getProperty(testFile, "id"));
+	    assertEquals("test2", rpf.getProperty(testFile, "pass"));
+	} catch (FileNotFoundException e) {
+	    fail("FileNotFoundExceptionでエラー");
+	} catch (IOException e) {
+	    fail("IOExceptionでエラー");
 	}
+    }
 }

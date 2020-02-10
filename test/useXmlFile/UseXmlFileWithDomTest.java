@@ -15,7 +15,7 @@ class UseXmlFileWithDomTest {
 	UseXmlFileWithDom uxf = new UseXmlFileWithDom();
 	NodeList books;
 	try {
-	    books = uxf.readXmlFileWithDom(TestConst.WORK_SPACE_DIR + "\\JavaStudy\\test\\useXmlFile\\Book.xml", "Book");
+	    books = uxf.readXmlFileWithDom(TestConst.PROJECT_ROOT_DIR + "\\test\\useXmlFile\\Book.xml", "Book");
 	    for (int i = 0; i < books.getLength(); i++) {
 		Element book = (Element) books.item(i);
 		String title = book.getAttribute("title");

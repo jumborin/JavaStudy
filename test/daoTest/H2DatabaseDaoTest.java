@@ -7,33 +7,18 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import cons.TestConst;
 import dao.H2DatabaseDao;
 import dbunitUtil.DbUnitUtil;
 
+/**
+ * H2DatabaseDAOのテスト用クラス
+ *
+ * @author jumborin
+ */
 class H2DatabaseDaoTest {
-
-    @BeforeAll
-    static void setUpBeforeClass() throws Exception {
-    }
-
-    @AfterAll
-    static void tearDownAfterClass() throws Exception {
-    }
-
-    @BeforeEach
-    void setUp() throws Exception {
-    }
-
-    @AfterEach
-    void tearDown() throws Exception {
-    }
 
     @Test
     void testSelect() {
