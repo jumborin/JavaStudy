@@ -43,9 +43,7 @@ public class UseXmlFileWithSaxHandler extends DefaultHandler {
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 	if (searchTagName.equals(qName)) {
 	    HashMap<String, String> map = new HashMap<String, String>();
-	    for (String tagName : tagNameList) {
-		map.put(tagName, attributes.getValue(tagName));
-	    }
+	    tagNameList.parallelStream().forEach((tagName)->map.put(tagName, attributes.getValue(tagName)));
 	    this.resultMapList.add(map);
 	}
     }
