@@ -1,4 +1,4 @@
-package useFileTest;
+package useTextFileTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -27,7 +27,7 @@ class UseTextFileTest {
     public void testReadTextFile() {
 
 	// テスト時に読み込むファイル
-	String testTextFile = TestConst.INPUT_DATA_DIR + "java.properties";
+	final String testTextFile = TestConst.PROJECT_ROOT_DIR + "\\test\\useTextFileTest\\PropertyFile.txt";
 
 	// テスト対象のクラスをインスタンス化
 	UseTextFile utf = new UseTextFile();
@@ -48,10 +48,10 @@ class UseTextFileTest {
     void testWriteTextFile() {
 
 	// テストデータ作成
-	String testData = "test";
+	final String testData = "test";
 
 	// テスト時に書き込むファイル
-	String testDataTextFile = TestConst.OUTPUT_DATA_DIR + "testWriteTextFile.txt";
+	final String testDataTextFile = TestConst.PROJECT_ROOT_DIR + "\\test\\useTextFileTest\\testWriteTextFile.txt";
 	UseTextFile utf = new UseTextFile();
 
 	try {
@@ -89,7 +89,8 @@ class UseTextFileTest {
 	testDataList.add("test2");
 
 	// テスト時に書き込むファイル
-	String testDataTextFile = TestConst.OUTPUT_DATA_DIR + "testWriteTextFileFromList.txt";
+	final String testDataTextFile = TestConst.PROJECT_ROOT_DIR
+		+ "\\test\\useTextFileTest\\testWriteTextFileFromList.txt";
 
 	// テスト対象のクラスをインスタンス化
 	UseTextFile utf = new UseTextFile();

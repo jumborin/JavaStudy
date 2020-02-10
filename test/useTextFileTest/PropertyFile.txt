@@ -1,0 +1,3 @@
+# プロパティファイル
+id=test1
+pass=test2
