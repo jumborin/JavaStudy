@@ -19,6 +19,9 @@ import useFile.UseCsvFile;
  */
 class UseCsvFileTest {
 
+    /** テスト用のCSVファイル */
+    private final String TEST_DATA_CSV_FILE = TestConst.PROJECT_ROOT_DIR + "\\test\\useCsvFileTest\\testWriteCsvFile.csv";
+
     /**
      * writeCsvFile()メソッドのテストメソッド
      */
@@ -33,17 +36,16 @@ class UseCsvFileTest {
 	testDataList.add("test4");
 
 	// 読み込み対象のファイル
-	String testDataCsvFile = TestConst.PROJECT_ROOT_DIR + "\\test\\useCsvFileTest\\testWriteCsvFile.csv";
 	UseCsvFile ucf = new UseCsvFile();
 
 	try {
 
 	    // テスト対象のメソッドを実行
-	    ucf.writeCsvFile(testDataCsvFile, testDataList);
-	    ucf.writeCsvFile(testDataCsvFile, testDataList);
+	    ucf.writeCsvFile(TEST_DATA_CSV_FILE, testDataList);
+	    ucf.writeCsvFile(TEST_DATA_CSV_FILE, testDataList);
 
 	    // 作成されたテキストファイルを読み込んで書き込んだ値が正しいことを確認
-	    List<String[]> list = ucf.readCsvFile(testDataCsvFile);
+	    List<String[]> list = ucf.readCsvFile(TEST_DATA_CSV_FILE);
 	    String[] rowData = list.get(0);
 	    assertEquals("test1", rowData[0]);
 	    assertEquals("test2", rowData[1]);
@@ -57,13 +59,13 @@ class UseCsvFileTest {
 	    assertEquals("test4", rowData[3]);
 
 	    // ファイルが存在することを確認
-	    assertEquals(true, ucf.isExistFile(testDataCsvFile));
+	    assertEquals(true, ucf.isExistFile(TEST_DATA_CSV_FILE));
 
 	    // ファイルが削除できることを確認
-	    assertEquals(true, ucf.deleteFile(testDataCsvFile));
+	    assertEquals(true, ucf.deleteFile(TEST_DATA_CSV_FILE));
 
 	    // ファイルが存在しないことを確認
-	    assertEquals(false, ucf.isExistFile(testDataCsvFile));
+	    assertEquals(false, ucf.isExistFile(TEST_DATA_CSV_FILE));
 
 	} catch (IOException e) {
 	    fail("IOExceptionエラー");
