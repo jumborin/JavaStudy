@@ -1,4 +1,4 @@
-package useFileTest;
+package useTsvFileTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -21,7 +21,7 @@ import useFile.UseTsvFile;
 class UseTsvFileTest {
 
     /** テスト用のTSVファイル */
-    private final String TEST_DATA_TSV_FILE = TestConst.INPUT_DATA_DIR + "testWriteTsvFile.tsv";
+    private final String TEST_DATA_TSV_FILE = TestConst.PROJECT_ROOT_DIR + "\\test\\useTsvFileTest\\testWriteTsvFile.tsv";
 
     /**
      * writeTsvFile()メソッドのテストメソッド
