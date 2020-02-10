@@ -46,3 +46,6 @@ https://selenium.dev/downloads/
 
 ## ChromeDriverのダウンロード元サイト(GoogleChromeでテストする際には必要)
 * https://chromedriver.chromium.org/downloads
+
+## MyBatis 3.5.4
+https://github.com/mybatis/mybatis-3/releases
