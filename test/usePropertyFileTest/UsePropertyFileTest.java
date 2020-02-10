@@ -1,4 +1,4 @@
-package useFileTest;
+package usePropertyFileTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -20,29 +20,29 @@ import useFile.UsePropertyFile;
  */
 class UsePropertyFileTest {
 
+    /** 読み込み対象のファイル */
+    private static final String TEST_FILE = TestConst.PROJECT_ROOT_DIR + "\\test\\usePropertyFileTest\\java.properties";
+
     /**
      * readPropertyFile()メソッドのテストメソッド
      */
     @Test
     void testReadPropertyFile() {
 
-	// 読み込み対象のファイル
-	String testFile = TestConst.INPUT_DATA_DIR + "java.properties";
-
 	// テスト対象のクラスをインスタンス化
 	UsePropertyFile rpf = new UsePropertyFile();
 
 	try {
 
+	    // プロパティファイルが存在することを確認
+	    assertEquals(true, rpf.isExistFile(TEST_FILE));
+
 	    // テスト対象のメソッドを実行
-	    Map<String, String> map = rpf.readPropertyFile(testFile);
+	    Map<String, String> map = rpf.readPropertyFile(TEST_FILE);
 
 	    // 実行結果が正しいかの確認
 	    assertEquals("test1", map.get("id"));
 	    assertEquals("test2", map.get("pass"));
-
-	    // プロパティファイルが存在することを確認
-	    assertEquals(true, rpf.isExistFile(testFile));
 
 	} catch (IOException e) {
 	    fail("IOExceptionエラー");
@@ -55,16 +55,13 @@ class UsePropertyFileTest {
     @Test
     void testGetProperty() {
 
-	// 読み込み対象のファイル
-	String testFile = TestConst.INPUT_DATA_DIR + "java.properties";
-
 	// テスト対象のクラスをインスタンス化
 	UsePropertyFile rpf = new UsePropertyFile();
 
 	try {
 	    // 実行結果が正しいかの確認
-	    assertEquals("test1", rpf.getProperty(testFile, "id"));
-	    assertEquals("test2", rpf.getProperty(testFile, "pass"));
+	    assertEquals("test1", rpf.getProperty(TEST_FILE, "id"));
+	    assertEquals("test2", rpf.getProperty(TEST_FILE, "pass"));
 	} catch (FileNotFoundException e) {
 	    fail("FileNotFoundExceptionでエラー");
 	} catch (IOException e) {
