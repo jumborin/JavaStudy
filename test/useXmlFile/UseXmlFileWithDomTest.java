@@ -9,7 +9,7 @@ import org.w3c.dom.NodeList;
 import cons.TestConst;
 import useFile.UseXmlFileWithDom;
 
-class useXmlFileWithDomTest {
+class UseXmlFileWithDomTest {
     @Test
     void testReadXmlFileWithDom() {
 	UseXmlFileWithDom uxf = new UseXmlFileWithDom();
