@@ -4,4 +4,4 @@
  * @author jumborin
  *
  */
-package daoTest;
+package daoJdbcTest;

@@ -1,4 +1,4 @@
-package dao;
+package daoJdbc;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

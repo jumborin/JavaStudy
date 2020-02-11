@@ -10,7 +10,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import cons.TestConst;
-import useFile.UseTsvFile;
+import useTsvFile.UseTsvFile;
 
 /**
  * UseTsvFileクラスのテストクラス

@@ -3,4 +3,4 @@
  *
  * @author jumborin
  */
-package mybatisTest;
+package daoMybatisTest;

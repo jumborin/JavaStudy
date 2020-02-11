@@ -3,4 +3,4 @@
  *
  * @author jumborin
  */
-package dao;
+package daoJdbc;

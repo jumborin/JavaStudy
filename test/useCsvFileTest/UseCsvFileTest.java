@@ -9,7 +9,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import cons.TestConst;
-import useFile.UseCsvFile;
+import useCsvFile.UseCsvFile;
 
 /**
  * UseCsvFileクラスのテストクラス

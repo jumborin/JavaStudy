@@ -1,4 +1,4 @@
-package mybatisTest;
+package daoMybatisTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,4 +1,4 @@
-package daoTest;
+package daoJdbcTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -10,7 +10,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 import cons.TestConst;
-import dao.H2DatabaseDao;
+import daoJdbc.H2DatabaseDao;
 import dbunitUtil.DbUnitUtil;
 
 /**
