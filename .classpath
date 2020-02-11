@@ -27,6 +27,9 @@
 	<classpathentry kind="lib" path="lib/client-combined-3.141.59.jar"/>
 	<classpathentry kind="lib" path="lib/pdfbox-app-2.0.18.jar"/>
 	<classpathentry kind="lib" path="lib/lombok.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2-api-2.13.0.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-api-2.13.0.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-core-2.13.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="lib/mybatis-3.5.4.jar"/>
 	<classpathentry kind="output" path="bin"/>

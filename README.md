@@ -8,6 +8,11 @@ https://pdfbox.apache.org/download.cgi
 
 * pdfbox-app-2.0.18.jar
 
+## Apache LOG4J 2.13.0:ログ操作
+https://logging.apache.org/log4j/2.x/download.html
+
+* log4j-1.2-api-2.13.0.jar
+* log4j-api-2.13.0.jar
 
 ## Apache POI 4.1.1:Excel操作
 https://poi.apache.org/download.html
@@ -49,3 +54,10 @@ https://selenium.dev/downloads/
 
 ## MyBatis 3.5.4
 https://github.com/mybatis/mybatis-3/releases
+
+* mybatis-3.5.4.jar
+
+## LOMBOK 1.18.12
+https://projectlombok.org/download
+
+* lombok.jar
