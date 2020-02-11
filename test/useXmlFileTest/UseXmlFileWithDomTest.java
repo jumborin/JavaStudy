@@ -1,4 +1,4 @@
-package useXmlFile;
+package useXmlFileTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,7 +7,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
 import cons.TestConst;
-import useFile.UseXmlFileWithDom;
+import useXmlFile.UseXmlFileWithDom;
 
 /**
  * UseXmlFileWithDomクラスのテスト用クラス
@@ -20,7 +20,7 @@ class UseXmlFileWithDomTest {
 	UseXmlFileWithDom uxf = new UseXmlFileWithDom();
 	NodeList books;
 	try {
-	    books = uxf.readXmlFileWithDom(TestConst.PROJECT_ROOT_DIR + "\\test\\useXmlFile\\Book.xml", "Book");
+	    books = uxf.readXmlFileWithDom(TestConst.PROJECT_ROOT_DIR + "\\test\\useXmlFileTest\\Book.xml", "Book");
 	    for (int i = 0; i < books.getLength(); i++) {
 		Element book = (Element) books.item(i);
 		String title = book.getAttribute("title");

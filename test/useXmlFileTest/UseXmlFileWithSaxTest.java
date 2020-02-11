@@ -1,4 +1,4 @@
-package useXmlFile;
+package useXmlFileTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -10,7 +10,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 import cons.TestConst;
-import useFile.UseXmlFileWithSax;
+import useXmlFile.UseXmlFileWithSax;
 
 /**
  * UseXmlFileWithSaxクラスのテスト用クラス
@@ -32,8 +32,8 @@ class UseXmlFileWithSaxTest {
 	tagNameList.add("title");
 	tagNameList.add("text");
 
-	List<HashMap<String, String>> resultMapList = uxfws
-		.readXmlFileWithSax(TestConst.PROJECT_ROOT_DIR + "\\test\\useXmlFile\\Book.xml", "Book", tagNameList);
+	List<HashMap<String, String>> resultMapList = uxfws.readXmlFileWithSax(
+		TestConst.PROJECT_ROOT_DIR + "\\test\\useXmlFileTest\\Book.xml", "Book", tagNameList);
 
 	Map<String, String> map = resultMapList.get(0);
 	assertEquals("清少納言", map.get("author"));

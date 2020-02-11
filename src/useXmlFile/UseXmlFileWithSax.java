@@ -1,4 +1,4 @@
-package useFile;
+package useXmlFile;
 
 import java.io.IOException;
 import java.nio.file.Paths;
