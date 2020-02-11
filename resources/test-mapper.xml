@@ -4,11 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="test">
-	<!-- SQL -->
-	<select id="selectTest" resultMap="testMap">select * from test</select>
-	<!-- マッピングするエンティティクラス -->
-	<resultMap id="testMap" type="daoMybatis.TestEntity">
-		<id property="id" column="ID" />
-		<result property="name" column="NAME" />
-	</resultMap>
+  <!-- SQL -->
+  <select id="selectTest" resultMap="testMap">select * from test</select>
+  <!-- マッピングするエンティティクラス -->
+  <resultMap id="testMap" type="dao.mybatis.TestEntity">
+    <id property="id" column="ID" />
+    <result property="name" column="NAME" />
+  </resultMap>
 </mapper>

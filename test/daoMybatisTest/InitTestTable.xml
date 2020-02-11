@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<dataset>
-	<!-- データセット用のXMLでは数値データも""で囲む -->
-	<!-- DATEやTIMESTAMP型の日付は「-」つなぎで指定する -->
-	<test id="1" name="tarou" />
-	<test id="2" name="jirou" />
-</dataset>
