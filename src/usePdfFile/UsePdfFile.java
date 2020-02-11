@@ -1,4 +1,4 @@
-package useFile;
+package usePdfFile;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -20,6 +20,8 @@ import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.graphics.PDXObject;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
+
+import useFile.UseFile;
 
 /**
  * PDFファイルを扱うクラス。 利用条件：PDFBoxが必要。

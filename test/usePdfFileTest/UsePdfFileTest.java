@@ -8,7 +8,7 @@ import java.io.IOException;
 import org.junit.jupiter.api.Test;
 
 import cons.TestConst;
-import useFile.UsePdfFile;
+import usePdfFile.UsePdfFile;
 
 /**
  * UsePdfFileクラスのテストクラス
@@ -61,6 +61,10 @@ class UsePdfFileTest {
 	UsePdfFile upf = new UsePdfFile();
 	try {
 	    upf.getImageFromPdfFile(TEST_INPUT_PDF_FILE, TestConst.OUTPUT_DATA_DIR);
+
+	    // 作成した画像ファイルを削除する。
+	    upf.deleteFiles(TestConst.OUTPUT_DATA_DIR, ".jpg");
+
 	} catch (IOException e) {
 	    fail("IOExceptionのエラー");
 	}
