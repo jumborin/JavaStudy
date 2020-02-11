@@ -15,6 +15,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
  */
 public class H2DatabaseMyBatisDao {
 
+    /** MyBatisの設定ファイルのパス */
+    private static final String MYBATIS_CONFIG_FILE_PATH = "/mybatis-config.xml";
+
     /**
      * MyBatisを利用してselectする
      *
@@ -22,7 +25,7 @@ public class H2DatabaseMyBatisDao {
      * @throws IOException
      */
     public List<TestEntity> select() throws IOException {
-	try (InputStream in = H2DatabaseMyBatisDao.class.getResourceAsStream("/mybatis-config.xml")) {
+	try (InputStream in = H2DatabaseMyBatisDao.class.getResourceAsStream(MYBATIS_CONFIG_FILE_PATH)) {
 	    SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
 	    try (SqlSession session = factory.openSession()) {
 		return session.selectList("test.selectTest");
