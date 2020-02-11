@@ -1,4 +1,4 @@
-package useFile;
+package useExcelFile;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,6 +10,8 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import useFile.UseFile;
 
 /**
  * Excelファイルを扱うクラス 利用条件：Apache POIが必要。
