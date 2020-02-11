@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Properties;
 
 import useFile.UseFile;
-import useFile.UseTextFile;
+import useTextFile.UseTextFile;
 
 /**
  * プロパティファイルを扱うクラス

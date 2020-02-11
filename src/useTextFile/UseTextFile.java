@@ -1,4 +1,4 @@
-package useFile;
+package useTextFile;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -10,6 +10,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import useFile.UseFile;
 
 /**
  * テキストファイルを扱うクラス

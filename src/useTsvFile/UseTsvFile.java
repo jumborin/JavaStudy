@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import useFile.UseTextFile;
+import useTextFile.UseTextFile;
 
 /**
  * TSVファイルを扱うクラス
