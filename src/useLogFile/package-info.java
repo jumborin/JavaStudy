@@ -1,8 +1,6 @@
 /**
- * 
- */
-/**
- * @author yf-ar
+ * ログファイルを扱うクラスのパッケージ
  *
+ * @author jumborin
  */
 package useLogFile;
