@@ -11,7 +11,6 @@ import useFile.UseTextFile;
  * ログファイルを出力するクラス
  *
  * @author jumborin
- *
  */
 public class UseLogFile extends UseTextFile {
 

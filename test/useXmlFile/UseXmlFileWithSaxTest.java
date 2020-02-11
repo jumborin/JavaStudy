@@ -12,8 +12,18 @@ import org.junit.jupiter.api.Test;
 import cons.TestConst;
 import useFile.UseXmlFileWithSax;
 
+/**
+ * UseXmlFileWithSaxクラスのテスト用クラス
+ *
+ * @author jumborin
+ */
 class UseXmlFileWithSaxTest {
 
+    /**
+     * readXmlFileWithSax()のテストメソッド
+     *
+     * @throws Exception
+     */
     @Test
     void testReadXmlFileWithSax() throws Exception {
 	UseXmlFileWithSax uxfws = new UseXmlFileWithSax();

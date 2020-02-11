@@ -17,12 +17,11 @@ import useFile.UseExcelFile;
  * UseExcelFileクラスのテストクラス
  *
  * @author jumborin
- *
  */
 class UseExcelFileTest {
 
     /**
-     * 指定セルの読込テスト
+     * getCellValueForXlsx()のテストメソッド
      */
     @Test
     @DisplayName("Xlsxファイルの読み込みテスト")
@@ -56,7 +55,7 @@ class UseExcelFileTest {
     }
 
     /**
-     * 指定セルの読込テスト
+     * getCellValueForXls()のテストメソッド
      */
     @Test
     @DisplayName("Xlsファイルの読み込みテスト")
@@ -92,7 +91,7 @@ class UseExcelFileTest {
     }
 
     /**
-     * 指定セルの書き換えのテスト
+     * setCellValueForXlsx()のテストメソッド
      *
      * @throws InvalidFormatException
      */
@@ -133,7 +132,7 @@ class UseExcelFileTest {
     }
 
     /**
-     * 指定セルの書き換えのテスト
+     * setCellValueForXls()のテストメソッド
      *
      * @throws InvalidFormatException
      */

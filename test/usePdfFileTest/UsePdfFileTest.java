@@ -11,7 +11,7 @@ import cons.TestConst;
 import useFile.UsePdfFile;
 
 /**
- * RDFBoxを使ってPDFの操作を行うクラス
+ * UsePdfFileクラスのテストクラス
  *
  * @author jumborin
  */
@@ -20,6 +20,8 @@ class UsePdfFileTest {
     /** テスト出力するPDFファイル名 */
     private final String TEST_OUTPUT_PDF_FILE = TestConst.PROJECT_ROOT_DIR
 	    + "\\test\\usePdfFileTest\\UsePdfFileOutputFile.pdf";
+
+    /** テスト入力するPDFファイル名 */
     private final String TEST_INPUT_PDF_FILE = TestConst.PROJECT_ROOT_DIR
 	    + "\\test\\usePdfFileTest\\UsePdfFileInputFile.pdf";
 
@@ -50,6 +52,9 @@ class UsePdfFileTest {
 	}
     }
 
+    /**
+     * getImageFromPdfFile()のテストメソッド
+     */
     @Test
     void testGetImageFromPdfFile() {
 	// テスト対象のクラスをインスタンス化

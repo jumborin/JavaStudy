@@ -5,10 +5,13 @@ import org.junit.jupiter.api.Test;
 import selenium.InternetExplorerSelenium;
 
 /**
- * IE11のSeleniumのテスト
+ * InternetExplorerSeleniumのテストクラス
  */
 class InternetExplorerSeleniumTest {
 
+    /**
+     * openGoogle()のテストメソッド
+     */
     @Test
     final void testOpenGoogle() {
 	InternetExplorerSelenium ies = new InternetExplorerSelenium();
@@ -16,7 +19,7 @@ class InternetExplorerSeleniumTest {
     }
 
     /**
-     * GoogleMapを開く。
+     * openGoogleMap()のテストメソッド
      */
     @Test
     final void testOpenGoogleMap() {

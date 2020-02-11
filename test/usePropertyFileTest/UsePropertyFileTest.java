@@ -16,7 +16,6 @@ import useFile.UsePropertyFile;
  * UsePropertyFileクラスのテストクラス
  *
  * @author jumborin
- *
  */
 class UsePropertyFileTest {
 

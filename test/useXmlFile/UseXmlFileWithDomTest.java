@@ -9,6 +9,11 @@ import org.w3c.dom.NodeList;
 import cons.TestConst;
 import useFile.UseXmlFileWithDom;
 
+/**
+ * UseXmlFileWithDomクラスのテスト用クラス
+ *
+ * @author jumborin
+ */
 class UseXmlFileWithDomTest {
     @Test
     void testReadXmlFileWithDom() {

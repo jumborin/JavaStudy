@@ -17,7 +17,7 @@ import useFile.UseFile;
 class UseFileTest {
 
     /**
-     * isExistFile()メソッドのテストメソッド
+     * isExistFile()のテストメソッド
      */
     @Test
     void testIsExistFile() {
@@ -33,6 +33,9 @@ class UseFileTest {
 	assertEquals(false, uf.deleteFile("NOT_EXIST.FILE"));
     }
 
+    /**
+     * deleteFile()のテストメソッド
+     */
     @Test
     void testDeleteFile() {
 	UseFile uf = new UseFile();
@@ -41,7 +44,7 @@ class UseFileTest {
     }
 
     /**
-     * getFileNameList()メソッドのテストメソッド
+     * getFileNameList()のテストメソッド
      */
     @Test
     void testGetFileNameList() {
@@ -53,7 +56,7 @@ class UseFileTest {
     }
 
     /**
-     * getFullFilePathList()メソッドのテストメソッド
+     * getFullFilePathList()のテストメソッド
      */
     @Test
     void testGetFullFilePathList() {

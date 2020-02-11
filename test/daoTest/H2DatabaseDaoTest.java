@@ -14,12 +14,15 @@ import dao.H2DatabaseDao;
 import dbunitUtil.DbUnitUtil;
 
 /**
- * H2DatabaseDAOのテスト用クラス
+ * H2DatabaseDaoのテストクラス
  *
  * @author jumborin
  */
 class H2DatabaseDaoTest {
 
+    /**
+     * select()のテストメソッド
+     */
     @Test
     void testSelect() {
 	try {
@@ -35,6 +38,9 @@ class H2DatabaseDaoTest {
 	}
     }
 
+    /**
+     * selectDbUnit()のテストメソッド
+     */
     @Test
     void testSelectDbUnit() {
 	try {

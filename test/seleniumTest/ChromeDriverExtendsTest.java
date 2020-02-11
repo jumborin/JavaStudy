@@ -1,6 +1,3 @@
-/**
- *
- */
 package seleniumTest;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -9,12 +6,15 @@ import org.junit.jupiter.api.Test;
 import selenium.ChromeDriverExtends;
 
 /**
- * @author jumborin
+ * ChromeDriverExtendsクラスのテストクラス
  *
+ * @author jumborin
  */
 class ChromeDriverExtendsTest {
 
     /**
+     * 毎回テストメソッド実行前に実施する処理
+     *
      * @throws java.lang.Exception
      */
     @BeforeEach
@@ -30,7 +30,7 @@ class ChromeDriverExtendsTest {
     private final static String CHROME_DRIVER_PATH = "driver/chromedriver.exe";
 
     /**
-     * {@link selenium.InternetExplorerDriverExtends#maxWindowSize()} のためのテスト・メソッド。
+     * テストメソッド。
      */
     @Test
     final void test() {

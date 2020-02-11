@@ -15,55 +15,50 @@ import java.util.Objects;
  * CSVファイルを扱うクラス
  *
  * @author jumborin
- *
  */
 public class UseCsvFile extends UseTextFile {
 
-	/**
-	 * CSVファイルを読み込みリストで返却する。
-	 *
-	 * @param csvFileName CSVファイル名
-	 * @return ArrayList<String[]> CSVファイルの行毎のリスト
-	 * @throws IOException
-	 */
-	public List<String[]> readCsvFile(final String csvFileName) throws IOException {
+    /**
+     * CSVファイルを読み込みリストで返却する。
+     *
+     * @param csvFileName CSVファイル名
+     * @return ArrayList<String[]> CSVファイルの行毎のリスト
+     * @throws IOException
+     */
+    public List<String[]> readCsvFile(final String csvFileName) throws IOException {
 
-		BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(csvFileName)));
+	BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(csvFileName)));
 
-		String line;
-		List<String[]> list = new ArrayList<String[]>();
+	String line;
+	List<String[]> list = new ArrayList<String[]>();
 
-		while (Objects.nonNull(line = bufferedReader.readLine())) {
-			list.add(line.split(","));
-		}
-
-		bufferedReader.close();
-
-		return list;
+	while (Objects.nonNull(line = bufferedReader.readLine())) {
+	    list.add(line.split(","));
 	}
+	bufferedReader.close();
+	return list;
+    }
 
-	/**
-	 * 引数のメッセージを引数のCSVファイルにカンマ区切りで追記する。
-	 *
-	 * @param csvFileName CSVファイル名
-	 * @param writeMessageList 書き込むメッセージ(1行分)
-	 * @throws IOException
-	 */
-	public void writeCsvFile(final String csvFileName, final List<String> writeMessageList) throws IOException {
+    /**
+     * 引数のメッセージを引数のCSVファイルにカンマ区切りで追記する。
+     *
+     * @param csvFileName      CSVファイル名
+     * @param writeMessageList 書き込むメッセージ(1行分)
+     * @throws IOException
+     */
+    public void writeCsvFile(final String csvFileName, final List<String> writeMessageList) throws IOException {
 
-		PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(new File(csvFileName), true)));
-		String writeData = "";
+	PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(new File(csvFileName), true)));
+	String writeData = "";
 
-		for (String columnData : writeMessageList) {
-			if (writeData != "") {
-				writeData += "," + columnData;
-			} else {
-				writeData = columnData;
-			}
-		}
-
-		pw.println(writeData);
-
-		pw.close();
+	for (String columnData : writeMessageList) {
+	    if (writeData != "") {
+		writeData += "," + columnData;
+	    } else {
+		writeData = columnData;
+	    }
 	}
+	pw.println(writeData);
+	pw.close();
+    }
 }

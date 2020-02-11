@@ -14,12 +14,11 @@ import useLogFile.UseLogFile;
  * UseLogFileクラスのテストクラス
  *
  * @author jumborin
- *
  */
 class UseLogFileTest {
 
     /**
-     * writeInfoLog()のテスト
+     * writeInfoLog()のテストメソッド
      */
     @DisplayName("INFOレベルでログ出力するテスト")
     @Test

@@ -16,7 +16,6 @@ import useFile.UseTextFile;
  * UseTextFileクラスのテストクラス
  *
  * @author jumborin
- *
  */
 class UseTextFileTest {
 

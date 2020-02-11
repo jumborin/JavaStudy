@@ -22,16 +22,10 @@ public class UseLogFileWithLog4J extends UseFile {
 	DOMConfigurator.configure(LogConst.LOG4J_CONFIG_FILE);
     }
 
-    public static void main(String[] args) {
-	DOMConfigurator.configure(LogConst.LOG4J_CONFIG_FILE);
-	Logger logger = Logger.getLogger(UseLogFileWithLog4J.class);
-	logger.error("test99");
-    }
-
     /**
      * Traceログを出力する(yyyy/mm/dd HH:MM:ss:sss [メソッド名] TRACE クラス名 message )
      *
-     * @param message
+     * @param message ログメッセージ
      */
     public void writeTraceLog(final String message) {
 	this.readConfig();
@@ -41,7 +35,7 @@ public class UseLogFileWithLog4J extends UseFile {
     /**
      * Debugログを出力する(yyyy/mm/dd HH:MM:ss:sss [メソッド名] DEBUG クラス名 message )
      *
-     * @param message
+     * @param message ログメッセージ
      */
     public void writeDebugLog(final String message) {
 	this.readConfig();
@@ -51,7 +45,7 @@ public class UseLogFileWithLog4J extends UseFile {
     /**
      * Infoログを出力する(yyyy/mm/dd HH:MM:ss:sss [メソッド名] INFO クラス名 message )
      *
-     * @param message
+     * @param message ログメッセージ
      */
     public void writeInfoLog(final String message) {
 	this.readConfig();
@@ -61,7 +55,7 @@ public class UseLogFileWithLog4J extends UseFile {
     /**
      * Warnログを出力する(yyyy/mm/dd HH:MM:ss:sss [メソッド名] WARN クラス名 message )
      *
-     * @param message
+     * @param message ログメッセージ
      */
     public void writeWarnLog(final String message) {
 	this.readConfig();
@@ -71,7 +65,7 @@ public class UseLogFileWithLog4J extends UseFile {
     /**
      * Errorログを出力する(yyyy/mm/dd HH:MM:ss:sss [メソッド名] ERROR クラス名 message )
      *
-     * @param message
+     * @param message ログメッセージ
      */
     public void writeErrorLog(final String message) {
 	this.readConfig();
@@ -81,7 +75,7 @@ public class UseLogFileWithLog4J extends UseFile {
     /**
      * Fatalログを出力する(yyyy/mm/dd HH:MM:ss:sss [メソッド名] FATAL クラス名 message)
      *
-     * @param message
+     * @param message ログメッセージ
      */
     public void writeFatalLog(final String message) {
 	this.readConfig();

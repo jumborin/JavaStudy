@@ -18,5 +18,4 @@ public class TestConst {
 
     /** テスト用アウトプットデータの格納フォルダ */
     public final static String OUTPUT_DATA_DIR = PROJECT_ROOT_DIR + "\\test\\outputData\\";
-
 }

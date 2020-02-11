@@ -11,7 +11,6 @@ import java.util.Properties;
  * プロパティファイルを扱うクラス
  *
  * @author jumborin
- *
  */
 public class UsePropertyFile extends UseFile {
 
@@ -28,9 +27,8 @@ public class UsePropertyFile extends UseFile {
 
 	UseTextFile utf = new UseTextFile();
 
-	utf.readTextFile(propertyFileName).stream()
-	    .filter((line) -> line.contains("="))
-	    .forEach((line) -> resultMap.put(line.substring(0, line.indexOf("=")), line.substring(line.indexOf("=") + 1)));
+	utf.readTextFile(propertyFileName).stream().filter((line) -> line.contains("=")).forEach(
+		(line) -> resultMap.put(line.substring(0, line.indexOf("=")), line.substring(line.indexOf("=") + 1)));
 
 	return resultMap;
     }

@@ -20,7 +20,6 @@ import java.util.Set;
  * H2Databaseを扱うクラス
  *
  * @author jumborin
- *
  */
 public class H2DatabaseDao {
 

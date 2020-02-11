@@ -16,11 +16,13 @@ import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 
 /**
- * DBUnitを利用する際のユーティリティクラス
+ * DBUnitを利用する際のユーティリティクラス。利用条件：H2DBとDBUnitが必要。
  *
  * @author jumborin
  */
 public class DbUnitUtil {
+
+    /** データベーステスター */
     private static IDatabaseTester databaseTester;
 
     /** DatabaseのJDBCドライバークラス */

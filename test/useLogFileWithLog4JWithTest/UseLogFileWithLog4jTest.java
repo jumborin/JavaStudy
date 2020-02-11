@@ -3,42 +3,34 @@ package useLogFileWithLog4JWithTest;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import useLogFileWithLog4JWith.UseLogFileWithLog4J;
 
 /**
- * Log4Jを使ったクラスのテスト用クラス
+ * UseLogFileWithLog4jクラスのテストクラス
  *
  * @author jumborin
- *
  */
 public class UseLogFileWithLog4jTest {
 
     /** ログファイルパス */
     private static final String LOG_FILE_PATH = "./logs/testlog.log";
 
-    @BeforeAll
-    static void setUpBeforeClass() throws Exception {
-    }
-
+    /**
+     * テストがすべて終わったときに実行するメソッド
+     *
+     * @throws Exception
+     */
     @AfterAll
     static void tearDownAfterClass() throws Exception {
 	UseLogFileWithLog4J ulfwl = new UseLogFileWithLog4J();
 	ulfwl.deleteFile(LOG_FILE_PATH);
     }
 
-    @BeforeEach
-    void setUp() throws Exception {
-    }
-
-    @AfterEach
-    void tearDown() throws Exception {
-    }
-
+    /**
+     * writeTraceLog()のテストメソッド
+     */
     @Test
     void testWriteTraceLog() {
 	UseLogFileWithLog4J ulfwl = new UseLogFileWithLog4J();
@@ -46,6 +38,9 @@ public class UseLogFileWithLog4jTest {
 	assertEquals(true, ulfwl.isExistFile(LOG_FILE_PATH));
     }
 
+    /**
+     * writeDebugLog()のテストメソッド
+     */
     @Test
     void testWriteDebugLog() {
 	UseLogFileWithLog4J ulfwl = new UseLogFileWithLog4J();
@@ -53,6 +48,9 @@ public class UseLogFileWithLog4jTest {
 	assertEquals(true, ulfwl.isExistFile(LOG_FILE_PATH));
     }
 
+    /**
+     * writeInfoLog()のテストメソッド
+     */
     @Test
     void testWriteInfoLog() {
 	UseLogFileWithLog4J ulfwl = new UseLogFileWithLog4J();
@@ -60,6 +58,9 @@ public class UseLogFileWithLog4jTest {
 	assertEquals(true, ulfwl.isExistFile(LOG_FILE_PATH));
     }
 
+    /**
+     * writeWarnLog()のテストメソッド
+     */
     @Test
     void testWriteWarnLog() {
 	UseLogFileWithLog4J ulfwl = new UseLogFileWithLog4J();
@@ -67,6 +68,9 @@ public class UseLogFileWithLog4jTest {
 	assertEquals(true, ulfwl.isExistFile(LOG_FILE_PATH));
     }
 
+    /**
+     * writeErrorLog()のテストメソッド
+     */
     @Test
     void testWriteErrorLog() {
 	UseLogFileWithLog4J ulfwl = new UseLogFileWithLog4J();
@@ -74,6 +78,9 @@ public class UseLogFileWithLog4jTest {
 	assertEquals(true, ulfwl.isExistFile(LOG_FILE_PATH));
     }
 
+    /**
+     * writeFatalLog()のテストメソッド
+     */
     @Test
     void testWriteFatalLog() {
 	UseLogFileWithLog4J ulfwl = new UseLogFileWithLog4J();

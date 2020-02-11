@@ -8,7 +8,6 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
  * SeleniumでInternetExplorerを利用するクラス
  *
  * @author jumborin
- *
  */
 public class InternetExplorerSelenium {
 

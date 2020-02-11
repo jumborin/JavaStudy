@@ -15,15 +15,15 @@ import useFile.UseCsvFile;
  * UseCsvFileクラスのテストクラス
  *
  * @author jumborin
- *
  */
 class UseCsvFileTest {
 
     /** テスト用のCSVファイル */
-    private final String TEST_DATA_CSV_FILE = TestConst.PROJECT_ROOT_DIR + "\\test\\useCsvFileTest\\testWriteCsvFile.csv";
+    private final String TEST_DATA_CSV_FILE = TestConst.PROJECT_ROOT_DIR
+	    + "\\test\\useCsvFileTest\\testWriteCsvFile.csv";
 
     /**
-     * writeCsvFile()メソッドのテストメソッド
+     * writeCsvFile()のテストメソッド
      */
     @Test
     void testWriteCsvFile() {

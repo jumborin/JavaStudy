@@ -16,12 +16,12 @@ import useFile.UseTsvFile;
  * UseTsvFileクラスのテストクラス
  *
  * @author jumborin
- *
  */
 class UseTsvFileTest {
 
     /** テスト用のTSVファイル */
-    private final String TEST_DATA_TSV_FILE = TestConst.PROJECT_ROOT_DIR + "\\test\\useTsvFileTest\\testWriteTsvFile.tsv";
+    private final String TEST_DATA_TSV_FILE = TestConst.PROJECT_ROOT_DIR
+	    + "\\test\\useTsvFileTest\\testWriteTsvFile.tsv";
 
     /**
      * writeTsvFile()メソッドのテストメソッド

@@ -13,13 +13,28 @@ import daoMybatis.H2DatabaseMyBatisDao;
 import daoMybatis.TestEntity;
 import dbunitUtil.DbUnitUtil;
 
+/**
+ * H2DatabaseMyBatisDaoのテストクラス
+ *
+ * @author jumborin
+ */
 class H2DatabaseMyBatisDaoTest {
 
+    /**
+     * 毎回テストメソッド実行前に実施する処理
+     *
+     * @throws Exception
+     */
     @BeforeEach
     void setUp() throws Exception {
 	DbUnitUtil.setUpNonExistSchema(TestConst.INPUT_DATA_DIR + "InitTestTable.xml");
     }
 
+    /**
+     * 毎回テストメソッド実行後に実施する処理
+     *
+     * @throws Exception
+     */
     @AfterEach
     void tearDown() throws Exception {
 	DbUnitUtil.check(TestConst.INPUT_DATA_DIR + "ExpectedTestTable.xml", "test", new String[0]);
@@ -27,7 +42,7 @@ class H2DatabaseMyBatisDaoTest {
     }
 
     /**
-     * select()のテスト
+     * select()のテストメソッド
      *
      * @throws DataSetException
      * @throws ClassNotFoundException

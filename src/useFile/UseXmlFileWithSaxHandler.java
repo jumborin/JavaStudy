@@ -30,6 +30,9 @@ public class UseXmlFileWithSaxHandler extends DefaultHandler {
 
     /**
      * 引数ありコンストラクタ
+     *
+     * @param searchTagName
+     * @param tagNameList
      */
     public UseXmlFileWithSaxHandler(final String searchTagName, final List<String> tagNameList) {
 	this.searchTagName = searchTagName;
@@ -40,10 +43,11 @@ public class UseXmlFileWithSaxHandler extends DefaultHandler {
     /**
      * 開始タグを検知する
      */
+    @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 	if (searchTagName.equals(qName)) {
 	    HashMap<String, String> map = new HashMap<String, String>();
-	    tagNameList.parallelStream().forEach((tagName)->map.put(tagName, attributes.getValue(tagName)));
+	    tagNameList.parallelStream().forEach((tagName) -> map.put(tagName, attributes.getValue(tagName)));
 	    this.resultMapList.add(map);
 	}
     }
@@ -51,6 +55,7 @@ public class UseXmlFileWithSaxHandler extends DefaultHandler {
     /**
      * 終了タグを検知する
      */
+    @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
 	if (searchTagName.equals(qName)) {
 	    // 何もしない。

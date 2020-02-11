@@ -1,6 +1,3 @@
-/**
- *
- */
 package seleniumTest;
 
 import java.util.concurrent.TimeUnit;
@@ -11,12 +8,15 @@ import org.junit.jupiter.api.Test;
 import selenium.InternetExplorerDriverExtends;
 
 /**
- * @author jumborin
+ * InternetExplorerDriverExtendsクラスのテストクラス
  *
+ * @author jumborin
  */
 class InternetExplorerDriverExtendsTest {
 
     /**
+     * 毎回テストメソッド実行前に実施する処理
+     *
      * @throws java.lang.Exception
      */
     @BeforeEach
@@ -32,7 +32,7 @@ class InternetExplorerDriverExtendsTest {
     private final String IE_DRIVER_PATH = "driver/IEDriverServer.exe";
 
     /**
-     * {@link selenium.InternetExplorerDriverExtends#maxWindowSize()} のためのテスト・メソッド。
+     * テストメソッド。
      */
     @Test
     final void test() {
