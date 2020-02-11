@@ -3,4 +3,4 @@
  *
  * @author jumborin
  */
-package useLogFileWithLog4JWith;
+package useLogFileWithLog4JWithTest;

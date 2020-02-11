@@ -1,4 +1,4 @@
-package useLogFile;
+package useLogFileWithLog4JWith;
 
 /**
  * Log4Jの定数を定義するクラス
