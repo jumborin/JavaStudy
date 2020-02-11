@@ -10,7 +10,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 
 import cons.TestConst;
-import useFile.UsePropertyFile;
+import usePropertyFile.UsePropertyFile;
 
 /**
  * UsePropertyFileクラスのテストクラス
