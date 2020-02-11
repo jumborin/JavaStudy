@@ -1,4 +1,4 @@
-package useFileTest;
+package useLogFileTest;
 
 import static org.junit.Assert.fail;
 
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import cons.TestConst;
-import useFile.UseLogFile;
+import useLogFile.UseLogFile;
 
 /**
  * UseLogFileクラスのテストクラス
