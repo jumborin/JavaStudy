@@ -38,7 +38,8 @@ public class UseFile {
     /**
      * 引数で指定したフォルダ内の指定拡張子のファイルを全て削除する。
      *
-     * @param fileName 削除対象のファイル名
+     * @param targetDir 削除対象のフォルダ名
+     * @param ext       指定拡張子
      */
     public void deleteFiles(final String targetDir, final String ext) {
 	for (File file : (new File(targetDir)).listFiles()) {
