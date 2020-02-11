@@ -28,7 +28,7 @@ class UseExcelFileTest {
     void testGetCellValueForXlsx() {
 
 	// テスト用Excelファイル名
-	final String excelFileName = TestConst.INPUT_DATA_DIR + "testExcelFile.xlsx";
+	final String excelFileName = TestConst.PROJECT_ROOT_DIR + "\\test\\useExcelFileTest\\testExcelFile.xlsx";
 
 	// テスト用Excelシート名
 	final String excelSheetName = "XlsxTestSheet";
@@ -62,7 +62,7 @@ class UseExcelFileTest {
     void testGetCellValueForXls() {
 
 	// テスト用Excelファイル名
-	final String excelFileName = TestConst.INPUT_DATA_DIR + "testExcelFile.xls";
+	final String excelFileName = TestConst.PROJECT_ROOT_DIR + "\\test\\useExcelFileTest\\testExcelFile.xls";
 
 	// テスト用Excelシート名
 	final String excelSheetName = "XlsTestSheet";
@@ -100,7 +100,7 @@ class UseExcelFileTest {
     void testSetCellValueForXlsx() throws InvalidFormatException {
 
 	// テスト用Excelファイル名
-	final String excelFileName = TestConst.INPUT_DATA_DIR + "testExcelFile2.xlsx";
+	final String excelFileName = TestConst.PROJECT_ROOT_DIR + "\\test\\useExcelFileTest\\testExcelFileUpdate.xlsx";
 	// テスト用Excelシート名
 	final String excelSheetName = "XlsxTestSheet";
 
@@ -141,7 +141,7 @@ class UseExcelFileTest {
     void testSetCellValueForXls() throws InvalidFormatException {
 
 	// テスト用Excelファイル名
-	final String excelFileName = TestConst.INPUT_DATA_DIR + "testExcelFile2.xls";
+	final String excelFileName = TestConst.PROJECT_ROOT_DIR + "\\test\\useExcelFileTest\\testExcelFileUpdate.xls";
 	// テスト用Excelシート名
 	final String excelSheetName = "XlsTestSheet";
 
