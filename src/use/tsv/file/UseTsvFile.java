@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import use.text.file.UseTextFile;
@@ -26,13 +27,13 @@ public class UseTsvFile extends UseTextFile {
    * @return TSVファイルの行毎のリスト
    * @throws IOException IOException
    */
-  public List<String[]> readTsvFile(final String tsvFileName) throws IOException {
+  public List<List<String>> readTsvFile(final String tsvFileName) throws IOException {
     BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(tsvFileName)));
     String line;
-    List<String[]> list = new ArrayList<String[]>();
+    List<List<String>> list = new ArrayList<List<String>>();
 
     while (Objects.nonNull(line = bufferedReader.readLine())) {
-      list.add(line.split("\t"));
+      list.add(Arrays.asList(line.split("\t")));
     }
     bufferedReader.close();
     return list;
