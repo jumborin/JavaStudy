@@ -44,18 +44,18 @@ class UseCsvFileTest {
       ucf.writeCsvFile(TEST_DATA_CSV_FILE, testDataList);
 
       // 作成されたテキストファイルを読み込んで書き込んだ値が正しいことを確認
-      List<String[]> list = ucf.readCsvFile(TEST_DATA_CSV_FILE);
-      String[] rowData = list.get(0);
-      assertEquals("test1", rowData[0]);
-      assertEquals("test2", rowData[1]);
-      assertEquals("test3", rowData[2]);
-      assertEquals("test4", rowData[3]);
+      List<List<String>> list = ucf.readCsvFile(TEST_DATA_CSV_FILE);
+      List<String> rowData = list.get(0);
+      assertEquals("test1", rowData.get(0));
+      assertEquals("test2", rowData.get(1));
+      assertEquals("test3", rowData.get(2));
+      assertEquals("test4", rowData.get(3));
 
       rowData = list.get(1);
-      assertEquals("test1", rowData[0]);
-      assertEquals("test2", rowData[1]);
-      assertEquals("test3", rowData[2]);
-      assertEquals("test4", rowData[3]);
+      assertEquals("test1", rowData.get(0));
+      assertEquals("test2", rowData.get(1));
+      assertEquals("test3", rowData.get(2));
+      assertEquals("test4", rowData.get(3));
 
       // ファイルが存在することを確認
       assertEquals(true, ucf.isExistFile(TEST_DATA_CSV_FILE));

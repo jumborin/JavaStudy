@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import use.text.file.UseTextFile;
@@ -26,15 +27,15 @@ public class UseCsvFile extends UseTextFile {
    * @return CSVファイルの行毎のリスト
    * @throws IOException IOException
    */
-  public List<String[]> readCsvFile(final String csvFileName) throws IOException {
+  public List<List<String>> readCsvFile(final String csvFileName) throws IOException {
 
     BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(csvFileName)));
 
     String line;
-    List<String[]> list = new ArrayList<String[]>();
+    List<List<String>> list = new ArrayList<List<String>>();
 
     while (Objects.nonNull(line = bufferedReader.readLine())) {
-      list.add(line.split(","));
+      list.add(Arrays.asList(line.split(",")));
     }
     bufferedReader.close();
     return list;
@@ -52,15 +53,7 @@ public class UseCsvFile extends UseTextFile {
 
     PrintWriter pw =
         new PrintWriter(new BufferedWriter(new FileWriter(new File(csvFileName), true)));
-    String writeData = "";
-
-    for (String columnData : writeMessageList) {
-      if (writeData != "") {
-        writeData += "," + columnData;
-      } else {
-        writeData = columnData;
-      }
-    }
+    String writeData = String.join(",", writeMessageList);
     pw.println(writeData);
     pw.close();
   }
