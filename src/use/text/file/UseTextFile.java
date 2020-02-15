@@ -66,9 +66,7 @@ public class UseTextFile extends UseFile {
       throws IOException {
     PrintWriter printWriter =
         new PrintWriter(new BufferedWriter(new FileWriter(new File(textFileName), true)));
-    for (String writeMessage : writeMessageList) {
-      printWriter.println(writeMessage);
-    }
+    writeMessageList.forEach((writeMessage) -> printWriter.println(writeMessage));
     printWriter.close();
   }
 }
