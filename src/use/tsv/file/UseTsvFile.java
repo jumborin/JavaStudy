@@ -51,15 +51,7 @@ public class UseTsvFile extends UseTextFile {
 
     PrintWriter pw =
         new PrintWriter(new BufferedWriter(new FileWriter(new File(tsvFileName), true)));
-    String writeData = "";
-
-    for (String columnData : writeMessageList) {
-      if (writeData != "") {
-        writeData += "\t" + columnData;
-      } else {
-        writeData = columnData;
-      }
-    }
+    String writeData = String.join("\t", writeMessageList);
     pw.println(writeData);
     pw.close();
   }
